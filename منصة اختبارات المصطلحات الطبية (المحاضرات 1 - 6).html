@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بنك أسئلة المصطلحات الطبية | المحاضرات 1 - 6</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cairo for Arabic & Inter for English medical terms -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            arabic: ['Cairo', 'sans-serif'],
+            english: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .en-text {
+      font-family: 'Inter', sans-serif;
+      direction: ltr;
+      text-align: left;
+    }
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-up {
+      animation: fadeSlideUp 0.28s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Top Navigation Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="goHome()">
+        <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shadow-sm font-bold text-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-extrabold text-slate-800 leading-tight">اختبارات المصطلحات الطبية</h1>
+          <p class="text-xs text-slate-500">جامعة سفنكس • المحاضرات (1 – 6) • 120 سؤالاً</p>
+        </div>
+      </div>
+      <button id="homeNavBtn" onclick="goHome()" class="hidden text-sm font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 px-3.5 py-2 rounded-xl transition">
+        القائمة الرئيسية
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6 sm:py-8">
+
+    <!-- SCREEN 1: HOME SCREEN -->
+    <section id="homeScreen" class="animate-fade-up">
+      <div class="bg-gradient-to-l from-teal-700 to-teal-600 rounded-2xl p-6 sm:p-8 text-white shadow-md mb-6">
+        <span class="inline-block bg-white/15 text-teal-50 text-xs font-bold px-3 py-1 rounded-full mb-3">
+          تدريب تفاعلي ذكي • 10 أسئلة عشوائية في كل محاولة
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">عايز تمتحن على أي محاضرة؟</h2>
+        <p class="text-teal-50 text-sm sm:text-base leading-relaxed max-w-2xl">
+          اختر محاضرة محددة للتدرب على 10 أسئلة عشوائية منها، أو اختر <strong>الامتحان الشامل</strong> لتختبر نفسك في 10 أسئلة موزعة عشوائياً على المحاضرات الست كلها مع شرح علمي فوري لكل سؤال.
+        </p>
+      </div>
+
+      <!-- Comprehensive Exam Highlight Card -->
+      <div class="mb-6">
+        <button onclick="startQuiz('comprehensive')" class="w-full text-right group bg-white hover:bg-amber-50/40 border-2 border-amber-400 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-start sm:items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 font-extrabold text-xl group-hover:scale-105 transition-transform">
+              ★
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">امتحان شامل (المحاضرات 1 إلى 6)</h3>
+                <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">10 أسئلة متنوعة</span>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">
+                توزيع عشوائي ذكي: 4 محاضرات بسؤالين لكل منها + محاضرتان بسؤال واحد لكل منهما (المجموع 10 أسئلة).
+              </p>
+            </div>
+          </div>
+          <span class="inline-flex items-center justify-center bg-amber-500 group-hover:bg-amber-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shrink-0 transition">
+            ابدأ الشامل ←
+          </span>
+        </button>
+      </div>
+
+      <!-- 6 Lectures Grid -->
+      <h3 class="text-base font-bold text-slate-700 mb-3 px-1">أو اختر محاضرة محددة (10 أسئلة عشوائية من أصل 20):</h3>
+      <div id="lecturesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- SCREEN 2: QUIZ SCREEN -->
+    <section id="quizScreen" class="hidden animate-fade-up">
+      <!-- Quiz Top Bar & Progress -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm mb-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <span id="quizModeBadge" class="text-xs sm:text-sm font-bold bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-xl">
+            المحاضرة الأولى
+          </span>
+          <div class="flex items-center gap-3 text-sm font-bold text-slate-700">
+            <span id="questionCounter" class="bg-slate-100 px-3 py-1 rounded-xl">سؤال 1 من 10</span>
+            <span id="liveScoreBadge" class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-xl">الصح: 0</span>
+          </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+          <div id="progressBar" class="h-full bg-teal-600 transition-all duration-300 rounded-full" style="width: 10%;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 shadow-sm">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <span id="questionLectureTag" class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
+            Lecture 01
+          </span>
+          <span id="questionOrigNumTag" class="text-xs font-medium text-slate-400">
+            بنك الأسئلة #1
+          </span>
+        </div>
+
+        <!-- English Question Text -->
+        <h2 id="questionText" class="en-text text-lg sm:text-xl font-bold text-slate-900 leading-relaxed mb-6">
+          Question text goes here...
+        </h2>
+
+        <!-- 4 Options Container -->
+        <div id="optionsContainer" class="space-y-3">
+          <!-- Buttons generated dynamically -->
+        </div>
+
+        <!-- Immediate Arabic Explanation Box (Hidden until answered) -->
+        <div id="explanationBox" class="hidden mt-6 rounded-2xl border-2 p-4 sm:p-5 animate-fade-up">
+          <div class="flex items-center gap-2 mb-2">
+            <span id="feedbackStatusIcon" class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0"></span>
+            <h3 id="feedbackStatusTitle" class="font-extrabold text-base sm:text-lg">شرح السؤال وسبب الاختيار:</h3>
+          </div>
+          <p id="explanationText" class="text-sm sm:text-base leading-relaxed text-slate-800 pr-1">
+            التفسير العلمي هنا...
+          </p>
+        </div>
+
+        <!-- Next Button Bar -->
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span id="selectHintText" class="text-xs sm:text-sm text-slate-400">اختر إجابة لعرض الشرح والانتقال للسؤال التالي</span>
+          <button id="nextQuestionBtn" onclick="nextQuestion()" class="hidden mr-auto bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm sm:text-base px-6 py-3 rounded-xl shadow-sm transition flex items-center gap-2">
+            <span id="nextBtnLabel">السؤال التالي</span>
+            <span>←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS SCREEN -->
+    <section id="resultsScreen" class="hidden animate-fade-up">
+      <!-- Score Summary Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm text-center mb-6">
+        <div id="scoreCircle" class="w-24 h-24 rounded-full mx-auto flex flex-col items-center justify-center border-4 mb-4">
+          <span id="finalScoreNum" class="text-3xl font-extrabold leading-none">8</span>
+          <span class="text-xs font-bold text-slate-500 mt-1">من 10</span>
+        </div>
+        <h2 id="resultHeadline" class="text-2xl font-extrabold text-slate-900 mb-2">أحسنت! نتيجة ممتازة</h2>
+        <p id="resultSubtext" class="text-sm sm:text-base text-slate-600 max-w-lg mx-auto mb-6">
+          ملخص أدائك في هذا الاختبار العشوائي.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button onclick="retakeQuiz()" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-xl shadow-sm transition">
+            اختبار مجدداً (10 أسئلة عشوائية جديدة)
+          </button>
+          <button onclick="goHome()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-xl transition">
+            العودة للقائمة الرئيسية
+          </button>
+        </div>
+      </div>
+
+      <!-- Wrong Answers Review Section -->
+      <div id="wrongAnswersSection" class="space-y-4">
+        <!-- Populated dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-slate-400 py-5 border-t border-slate-200/70 bg-white mt-auto">
+    بنك أسئلة المصطلحات الطبية (Sphinx University) • إعداد د. غادة محمد سعيد • تدريب تفاعلي
+  </footer>
+
+  <script>
+    // =========================================================================
+    // COMPLETE QUESTION BANK: LECTURES 1 TO 6 (120 EXACT QUESTIONS FROM PDF)
+    // =========================================================================
+    const LECTURES_META = [
+      {
+        id: 1,
+        arTitle: "المحاضرة الأولى",
+        enTitle: "Lecture 01: Foundations of Medical Terminology",
+        desc: "مكونات المصطلح الطبي، الجذر، البادئة، اللاحقة، وطرق التحليل."
+      },
+      {
+        id: 2,
+        arTitle: "المحاضرة الثانية",
+        enTitle: "Lecture 02: Word Roots, Combining Forms, Plurals, and Pronunciation",
+        desc: "جذور الأعضاء الأساسية، الأشكال المركبة، قواعد الجمع اللاتينية واليونانية."
+      },
+      {
+        id: 3,
+        arTitle: "المحاضرة الثالثة",
+        enTitle: "Lecture 03: Prefixes: Position, Number, Time, Quantity, and Speed",
+        desc: "البادئات الدالة على الموقع، العدد، الزمن، الكمية، والسرعة."
+      },
+      {
+        id: 4,
+        arTitle: "المحاضرة الرابعة",
+        enTitle: "Lecture 04: Suffixes: Conditions, Symptoms, Procedures, and Specialties",
+        desc: "اللاحقات الدالة على الأمراض، الأعراض، العمليات الجراحية، والتخصصات."
+      },
+      {
+        id: 5,
+        arTitle: "المحاضرة الخامسة",
+        enTitle: "Lecture 05: Anatomical, Positional, and Directional Terminology",
+        desc: "الاتجاهات التشريحية، الأوضاع السريرية، ومستويات تقسيم الجسم."
+      },
+      {
+        id: 6,
+        arTitle: "المحاضرة السادسة",
+        enTitle: "Lecture 06: Cardiovascular and Hematology Terminology",
+        desc: "مصطلحات القلب، الأوعية الدموية، ومكونات وخلايا الدم."
+      }
+    ];
+
+    const QUESTION_BANK = [
+      // ==================== LECTURE 01 (1 - 20) ====================
+      {
+        lecture: 1, qNum: 1,
+        q: "Which component usually carries the core meaning of a medical term?",
+        options: ["Prefix", "Suffix", "Combining vowel", "Word root"],
+        correct: 3,
+        explanation: "الجذر اللغوي (Word root) هو الأساس الذي يحدد العضو أو الجزء الرئيسي في الكلمة الطبية، ولذلك فهو يحمل المعنى الجوهري الأساسي للمصطلح، بينما البادئة واللاحقة تضيفان تفاصيل حول الحالة أو الموقع."
+      },
+      {
+        lecture: 1, qNum: 2,
+        q: "Which statement best describes a prefix?",
+        options: [
+          "It usually modifies the meaning and appears before the root",
+          "It always names an organ",
+          "It appears at the end of a term",
+          "It is the same as a combining vowel"
+        ],
+        correct: 0,
+        explanation: "البادئة (Prefix) هي مقطع يوضع في بداية الكلمة قبل الجذر لتعديل معناه الأساسي (مثل تحديد السرعة أو الكمية أو الموقع)، ولا تأتي في النهاية ولا تسمي عضواً بحد ذاتها."
+      },
+      {
+        lecture: 1, qNum: 3,
+        q: "The suffix -itis most directly indicates:",
+        options: ["Pain", "Inflammation", "Enlargement", "Study of"],
+        correct: 1,
+        explanation: "اللاحقة الطبية (-itis) هي اللاحقة القياسية الدالة على وجود التهاب (Inflammation) في العضو المذكور في الجذر، مثل التهاب المعدة (Gastritis)."
+      },
+      {
+        lecture: 1, qNum: 4,
+        q: "In cardi/o/logy, the letter o functions as a:",
+        options: ["Prefix", "Root", "Suffix", "Combining vowel"],
+        correct: 3,
+        explanation: "حرف (o) هنا هو حرف ربط (Combining vowel) وظيفته الصوتية تسهيل الانتقال في النطق بين جذر القلب (cardi) واللاحقة (-logy)."
+      },
+      {
+        lecture: 1, qNum: 5,
+        q: "Which item is a combining form?",
+        options: ["neur/o", "brady-", "-itis", "-logy"],
+        correct: 0,
+        explanation: "الشكل المركب (Combining form) يتكون دائماً من الجذر مضافاً إليه حرف الربط ويفصل بينهما بشرطة مائلة مثل (neur/o)، أما (brady-) فبادئة، و(-itis / -logy) لاحقتان."
+      },
+      {
+        lecture: 1, qNum: 6,
+        q: "Which term is an eponym according to the lecture?",
+        options: ["Gastritis", "Cardiology", "Hepatomegaly", "Parkinson disease"],
+        correct: 3,
+        explanation: "المصطلح المنسوب لشخص (Eponym) هو مصطلح سُمّي تكريماً للعالم أو الطبيب الذي اكتشفه أو وصفه مثل مرض باركنسون (Parkinson disease)، ولا يُحلل بجذور يونانية أو لاتينية تقليدية."
+      },
+      {
+        lecture: 1, qNum: 7,
+        q: "Which is the best first strategy when decoding an unfamiliar medical term?",
+        options: [
+          "Translate it immediately from left to right",
+          "Start by identifying the suffix",
+          "Ignore the suffix and look only at the prefix",
+          "Memorize the whole word as one unit"
+        ],
+        correct: 1,
+        explanation: "القاعدة الذهبية في تحليل المصطلحات الطبية غير المألوفة هي البدء بنهاية الكلمة وتحديد اللاحقة (Suffix) أولاً لمعرفة نوع الحالة أو الإجراء، ثم الرجوع إلى البادئة والجذر."
+      },
+      {
+        lecture: 1, qNum: 8,
+        q: "Hepatomegaly is best decoded as:",
+        options: [
+          "Inflammation of the liver",
+          "Enlargement of the liver",
+          "Study of the liver",
+          "Pain in the liver"
+        ],
+        correct: 1,
+        explanation: "عند تقسيم المصطلح: اللاحقة (-megaly) تعني تضخم، والجذر (hepat/o) يعني الكبد، فيكون المعنى الدقيق هو تضخم الكبد (Enlargement of the liver)."
+      },
+      {
+        lecture: 1, qNum: 9,
+        q: "The accepted clinical meaning of pericarditis is:",
+        options: [
+          "Inflammation inside a cardiac chamber",
+          "Inflammation of the pericardium",
+          "Pain around the heart",
+          "Enlargement of the heart"
+        ],
+        correct: 1,
+        explanation: "رغم أن المعنى الحرفي قد يوحي بالتهاب حول القلب، إلا أن المعنى السريري المعتمد لمصطلح (pericarditis) هو التهاب غشاء التامور المحيط بالقلب تحديداً (Inflammation of the pericardium)."
+      },
+      {
+        lecture: 1, qNum: 10,
+        q: "A symptom is best defined as:",
+        options: [
+          "An objective finding measured by a device",
+          "The expected outcome of disease",
+          "A patient-reported subjective experience",
+          "The final name of a disease only"
+        ],
+        correct: 2,
+        explanation: "العَرَض (Symptom) هو تجربة ذاتية يشعر بها المريض وحده ويصفها للطبيب (مثل الصداع أو الغثيان)، ولا يمكن قياسه مباشرة بجهاز."
+      },
+      {
+        lecture: 1, qNum: 11,
+        q: "A temperature measured at 39°C is an example of a:",
+        options: ["Symptom", "Prognosis", "Sign", "Diagnosis"],
+        correct: 2,
+        explanation: "درجة الحرارة المقاسة بالترمومتر (39°C) هي معطى موضوعي يمكن للطبيب قياسه وملاحظته بدقة، ولذلك تُصنف كعلامة إكلينيكية (Sign) وليست مجرد شكوى ذاتية."
+      },
+      {
+        lecture: 1, qNum: 12,
+        q: "Prognosis refers to the:",
+        options: [
+          "Patient-reported complaint",
+          "Name of the organ involved",
+          "Laboratory method used",
+          "Expected course or outcome of a condition"
+        ],
+        correct: 3,
+        explanation: "مصطلح (Prognosis) يعني المآل أو التوقع الطبي لمسار المرض وفرص الشفاء أو المضاعفات المستقبلية للحالة."
+      },
+      {
+        lecture: 1, qNum: 13,
+        q: "Which term begins directly with a root rather than a prefix?",
+        options: ["Bradycardia", "Hypoglycemia", "Pericarditis", "Gastritis"],
+        correct: 3,
+        explanation: "كلمة (Gastritis) تتكون مباشرة من الجذر (gastr/o) بمعنى المعدة واللاحقة (-itis) بمعنى التهاب دون أي بادئة، بينما باقي الكلمات تبدأ ببادئات (brady- , hypo- , peri-)."
+      },
+      {
+        lecture: 1, qNum: 14,
+        q: "Before a suffix beginning with a vowel, the combining vowel is often:",
+        options: ["Duplicated", "Omitted", "Changed to i", "Converted into a prefix"],
+        correct: 1,
+        explanation: "قاعدة إملائية وصوتية أساسية: إذا بدأت اللاحقة بحرف متحرك (مثل -itis)، يُحذف حرف الربط (Omitted) من نهاية الجذر منعاً لتتابع حرفين متحركين، فنكتب gastritis وليس gastroitis."
+      },
+      {
+        lecture: 1, qNum: 15,
+        q: "Which sequence matches the lecture decoding method?",
+        options: [
+          "APPLY → SEE → SPLIT → DECODE",
+          "SPLIT → APPLY → SEE → DECODE",
+          "SEE → SPLIT → DECODE → APPLY",
+          "DECODE → SEE → APPLY → SPLIT"
+        ],
+        correct: 2,
+        explanation: "المنهجية الصحيحة لفهم أي مصطلح طبي تمر بأربع خطوات منطقية: رؤية الكلمة كاملة (SEE)، ثم تقسيمها لمقاطعها (SPLIT)، ثم فك معنى كل جزء (DECODE)، وأخيراً تطبيق المعنى السريري الصحيح (APPLY)."
+      },
+      {
+        lecture: 1, qNum: 16,
+        q: "Arthr/o/scopy means:",
+        options: [
+          "Inflammation of a joint",
+          "Surgical removal of a joint",
+          "Visual examination of a joint",
+          "Joint pain"
+        ],
+        correct: 2,
+        explanation: "اللاحقة (-scopy) تعني الفحص البصري باستخدام المنظار، والجذر (arthr/o) يعني مفصل، لذا فالمعنى هو الفحص البصري للمفصل بالمنظار."
+      },
+      {
+        lecture: 1, qNum: 17,
+        q: "Which statement about literal decoding is most accurate?",
+        options: [
+          "It is a starting point that should be followed by the accepted clinical meaning",
+          "It always gives the final clinical definition",
+          "It is useless for unfamiliar terms",
+          "It should replace clinical definitions"
+        ],
+        correct: 0,
+        explanation: "الترجمة أو التفكيك الحرفي للأجزاء هو مجرد نقطة بداية لفهم الكلمة، لكن يجب دائماً ربطه بالمعنى الطبي السريري المعتمد لأن الاستخدام الإكلينيكي قد يكون أكثر تحديداً."
+      },
+      {
+        lecture: 1, qNum: 18,
+        q: "Hypoglycemia is best defined as:",
+        options: [
+          "Low glucose level in the blood",
+          "High glucose in urine",
+          "Low oxygen in blood",
+          "High glucose in blood"
+        ],
+        correct: 0,
+        explanation: "البادئة (hypo-) تعني انخفاض أو نقص، والجذر (glyc/o) يشير للجلوكوز، واللاحقة (-emia) تعني حالة في الدم، فيكون المعنى انخفاض مستوى الجلوكوز في الدم."
+      },
+      {
+        lecture: 1, qNum: 19,
+        q: "Which term describes abnormally rapid breathing without naming a specific disease?",
+        options: ["Diagnosis", "Prognosis", "Tachypnea", "Arthroscopy"],
+        correct: 2,
+        explanation: "مصطلح (Tachypnea) يتكون من (tachy-) بمعنى سريع و(-pnea) بمعنى تنفس، وهو يصف عرضاً أو علامة لسرعة التنفس دون أن يحدد اسم المرض المسبب لها."
+      },
+      {
+        lecture: 1, qNum: 20,
+        q: "Which pair is correctly matched?",
+        options: [
+          "Diagnosis - identification of a disease or condition",
+          "Sign - patient-reported nausea",
+          "Symptom - blood pressure measured by cuff",
+          "Prognosis - objective temperature reading"
+        ],
+        correct: 0,
+        explanation: "التشخيص (Diagnosis) هو تحديد وتسمية المرض أو الحالة الطبية بدقة؛ أما الغثيان الذي يشكو منه المريض فهو Symptom، وقياس الضغط أو الحرارة فهو Sign."
+      },
+
+      // ==================== LECTURE 02 (21 - 40) ====================
+      {
+        lecture: 2, qNum: 1,
+        q: "Which combining form means heart?",
+        options: ["cardi/o", "neur/o", "oste/o", "cyt/o"],
+        correct: 0,
+        explanation: "الشكل المركب (cardi/o) هو الجذر الأساسي للقلب، بينما (neur/o) للعصب، و(oste/o) للعظم، و(cyt/o) للخلية."
+      },
+      {
+        lecture: 2, qNum: 2,
+        q: "Which combining form means blood?",
+        options: ["hist/o", "my/o", "hemat/o or hem/o", "derm/o"],
+        correct: 2,
+        explanation: "يُستخدم الشكلان المركبان (hemat/o) أو (hem/o) للدلالة على الدم، مثل Hematology (علم أمراض الدم) وHemolysis (تحلل الدم)."
+      },
+      {
+        lecture: 2, qNum: 3,
+        q: "Cyt/o refers to a:",
+        options: ["Tissue", "Bone", "Cell", "Nerve"],
+        correct: 2,
+        explanation: "الشكل المركب (cyt/o) يشير إلى الخلية (Cell)، ومنه علم الخلايا (Cytology)."
+      },
+      {
+        lecture: 2, qNum: 4,
+        q: "Hist/o refers to:",
+        options: ["Muscle", "Tissue", "Skin", "Kidney"],
+        correct: 1,
+        explanation: "الشكل المركب (hist/o) يعني النسيج الحيوي (Tissue)، ومنه علم الأنسجة (Histology)."
+      },
+      {
+        lecture: 2, qNum: 5,
+        q: "Oste/o means:",
+        options: ["Joint", "Bone", "Gland", "Tumor"],
+        correct: 1,
+        explanation: "الشكل المركب (oste/o) يدل على العظم (Bone)، مثل Osteoporosis (هشاشة العظام)."
+      },
+      {
+        lecture: 2, qNum: 6,
+        q: "My/o refers to:",
+        options: ["Mind", "Muscle", "Mouth", "Marrow only"],
+        correct: 1,
+        explanation: "الشكل المركب (my/o) يشير إلى العضلة (Muscle)، مثل Myalgia (ألم العضلات) وMyocardium (عضلة القلب)."
+      },
+      {
+        lecture: 2, qNum: 7,
+        q: "Nephr/o means:",
+        options: ["Liver", "Kidney", "Stomach", "Head"],
+        correct: 1,
+        explanation: "الشكل المركب اليوناني الأصل (nephr/o) يدل على الكلية (Kidney)، ومنه Nephritis (التهاب الكلية)."
+      },
+      {
+        lecture: 2, qNum: 8,
+        q: "Which form also refers to kidney?",
+        options: ["aden/o", "onc/o", "path/o", "ren/o"],
+        correct: 3,
+        explanation: "بالإضافة إلى (nephr/o) ذي الأصل اليوناني، يُستخدم الجذر اللاتيني (ren/o) للدلالة على الكلية أيضاً، مثل Renal failure (الفشل الكلوي)."
+      },
+      {
+        lecture: 2, qNum: 9,
+        q: "Aden/o means:",
+        options: ["Disease", "Tumor", "Intestine", "Gland"],
+        correct: 3,
+        explanation: "الشكل المركب (aden/o) يدل على الغدة (Gland)، مثل Adenoma (ورم غدي)."
+      },
+      {
+        lecture: 2, qNum: 10,
+        q: "Onc/o refers to:",
+        options: ["Tissue", "Head", "Tumor", "Joint"],
+        correct: 2,
+        explanation: "الشكل المركب (onc/o) يشير إلى الورم أو الكتلة (Tumor)، ومنه تخصص طب الأورام (Oncology)."
+      },
+      {
+        lecture: 2, qNum: 11,
+        q: "The plural of diagnosis is:",
+        options: ["diagnoses", "diagnosises", "diagnosia", "diagnosiae"],
+        correct: 0,
+        explanation: "في قواعد الجمع الطبية ذات الأصل اليوناني، الكلمات المفردة التي تنتهي بـ (-is) تُجمع بتحويل النهاية إلى (-es)، فتصبح diagnosis -> diagnoses."
+      },
+      {
+        lecture: 2, qNum: 12,
+        q: "The plural of bacterium is:",
+        options: ["bacteriums", "bacteriae", "bacterias", "bacteria"],
+        correct: 3,
+        explanation: "الكلمات اللاتينية المفردة التي تنتهي بـ (-um) تُجمع بحذف (-um) وإضافة (-a)، ولذلك جمع bacterium هو bacteria."
+      },
+      {
+        lecture: 2, qNum: 13,
+        q: "The plural of criterion is:",
+        options: ["criterions", "criteriones", "criteria", "criteriae"],
+        correct: 2,
+        explanation: "الكلمات اليونانية المفردة التي تنتهي بـ (-on) تُجمع بتحويل النهاية إلى (-a)، فيكون جمع criterion هو criteria."
+      },
+      {
+        lecture: 2, qNum: 14,
+        q: "The plural of vertebra is:",
+        options: ["vertebrae", "vertebras", "vertebri", "vertebrata"],
+        correct: 0,
+        explanation: "الكلمات اللاتينية المفردة التي تنتهي بحرف (-a) تُجمع بإضافة حرف (e) لتصبح (-ae)، وبالتالي جمع vertebra هو vertebrae."
+      },
+      {
+        lecture: 2, qNum: 15,
+        q: "Which statement about medical plural forms is most accurate?",
+        options: [
+          "Greek and Latin patterns are common but not absolute",
+          "All terms follow one fixed rule",
+          "English plurals are never used",
+          "Students should invent unfamiliar plurals from a rule"
+        ],
+        correct: 0,
+        explanation: "أنماط الجمع اليونانية واللاتينية شائعة جداً في الطب، لكنها ليست قاعدة مطلقة بلا استثناءات، لذا يجب الرجوع للمعجم الطبي عند الشك وعدم اختراع صيغ جمع عشوائية."
+      },
+      {
+        lecture: 2, qNum: 16,
+        q: "Cardiomyopathy is best decoded as:",
+        options: [
+          "Inflammation of heart muscle",
+          "Study of heart muscle",
+          "Enlargement of heart muscle",
+          "Disease of heart muscle"
+        ],
+        correct: 3,
+        explanation: "بتفكيك المصطلح من النهاية: (-pathy) تعني مرض أو اعتلال، و(my/o) تعني عضلة، و(cardi/o) تعني قلب؛ فيكون المعنى الدقيق اعتلال أو مرض عضلة القلب."
+      },
+      {
+        lecture: 2, qNum: 17,
+        q: "Histopathology refers to the:",
+        options: [
+          "Study of normal blood cells",
+          "Study of bone only",
+          "Measurement of hearing",
+          "Microscopic study of diseased tissue"
+        ],
+        correct: 3,
+        explanation: "يجمع المصطلح بين (hist/o) نسيج + (path/o) مرض + (-logy) دراسة، وهو الفرع الطبي المختص بالفحص المجهري للأنسجة المصابة لتشخيص الأمراض."
+      },
+      {
+        lecture: 2, qNum: 18,
+        q: "Which term means joint pain?",
+        options: ["Arthralgia", "Arthritis", "Arthroscopy", "Arthrology"],
+        correct: 0,
+        explanation: "الجذر (arthr/o) يعني مفصل واللاحقة (-algia) تعني ألم، لذا فـ Arthralgia تعني ألم المفصل (بينما Arthritis تعني التهاب المفصل)."
+      },
+      {
+        lecture: 2, qNum: 19,
+        q: "What is the main difference between a root and a combining form?",
+        options: [
+          "A root always contains a suffix",
+          "A combining form is root plus combining vowel",
+          "A combining form has no meaning",
+          "A root is always a complete medical term"
+        ],
+        correct: 1,
+        explanation: "الجذر (Root) هو الجزء الأساسي للكلمة دون إضافات (مثل cardi)، أما الشكل المركب (Combining form) فهو نفس الجذر مضافاً إليه حرف الربط (مثل cardi/o)."
+      },
+      {
+        lecture: 2, qNum: 20,
+        q: "Which pronunciation strategy is recommended?",
+        options: [
+          "Read terms letter by letter",
+          "Ignore pronunciation",
+          "Use syllables and emphasize correct recognition",
+          "Pronounce every combining vowel as a separate word"
+        ],
+        correct: 2,
+        explanation: "الطريقة المثلى لنطق المصطلحات الطبية الطويلة هي تقسيمها إلى مقاطع صوتية (Syllables) والتركيز على نطقها بشكل واضح يضمن التعرف الصحيح على أجزائها."
+      },
+
+      // ==================== LECTURE 03 (41 - 60) ====================
+      {
+        lecture: 3, qNum: 1,
+        q: "The prefix hyper- most commonly indicates:",
+        options: ["Excessive or above normal", "Below normal", "Around", "After"],
+        correct: 0,
+        explanation: "البادئة (hyper-) تعني الزيادة المفرطة أو الارتفاع فوق المعدل الطبيعي، مثل Hypertension (ارتفاع ضغط الدم) وHyperglycemia (ارتفاع سكر الدم)."
+      },
+      {
+        lecture: 3, qNum: 2,
+        q: "The prefix hypo- means:",
+        options: ["Below normal or deficient", "Above normal", "Fast", "Many"],
+        correct: 0,
+        explanation: "البادئة (hypo-) هي عكس (hyper-) وتدل على الانخفاض دون الطبيعي أو النقص، مثل Hypotension (انخفاض ضغط الدم)."
+      },
+      {
+        lecture: 3, qNum: 3,
+        q: "Tachy- indicates:",
+        options: ["Slow", "Absent", "Fast", "Painful"],
+        correct: 2,
+        explanation: "البادئة (tachy-) تدل على السرعة غير الطبيعية في معدل وظيفة حيوية، مثل سرعة ضربات القلب (Tachycardia) أو سرعة التنفس (Tachypnea)."
+      },
+      {
+        lecture: 3, qNum: 4,
+        q: "Brady- indicates:",
+        options: ["Fast", "Before", "Slow", "Between"],
+        correct: 2,
+        explanation: "البادئة (brady-) هي عكس (tachy-) وتدل على البطء غير الطبيعي، مثل بطء ضربات القلب (Bradycardia)."
+      },
+      {
+        lecture: 3, qNum: 5,
+        q: "Poly- usually means:",
+        options: ["Few or scanty", "Many or much", "Without", "Within"],
+        correct: 1,
+        explanation: "البادئة (poly-) تدل على الكثرة أو التعدد، مثل Polyuria (كثرة التبول) وPolydipsia (كثرة العطش)."
+      },
+      {
+        lecture: 3, qNum: 6,
+        q: "Oligo- most closely means:",
+        options: ["Few or scanty", "Many", "Above", "Around"],
+        correct: 0,
+        explanation: "البادئة (oligo-) تدل على القلة أو الندرة، مثل Oliguria (قلة كمية البول)."
+      },
+      {
+        lecture: 3, qNum: 7,
+        q: "A-/an- commonly indicates:",
+        options: ["Painful", "Absence or without", "Inside", "After"],
+        correct: 1,
+        explanation: "البادئة (a-) أو (an- قبل الحرف المتحرك) تفيد النفي أو الغياب التام، مثل Apnea (توقف/غياب التنفس) وAnuria (انعدام البول)."
+      },
+      {
+        lecture: 3, qNum: 8,
+        q: "Dys- may indicate:",
+        options: [
+          "Normal",
+          "Painful, difficult, or abnormal",
+          "Only large",
+          "Only small"
+        ],
+        correct: 1,
+        explanation: "البادئة (dys-) تشير إلى وجود صعوبة أو ألم أو خلل وظيفي، مثل Dyspnea (صعوبة التنفس) وDysuria (ألم أو صعوبة التبول)."
+      },
+      {
+        lecture: 3, qNum: 9,
+        q: "Peri- means:",
+        options: ["Within", "Under", "Between", "Around"],
+        correct: 3,
+        explanation: "البادئة (peri-) تعني حول أو محيط بـ، مثل Pericardium (الغشاء المحيط بالقلب)."
+      },
+      {
+        lecture: 3, qNum: 10,
+        q: "Endo- most closely means:",
+        options: ["After", "Above", "Before", "Within"],
+        correct: 3,
+        explanation: "البادئة (endo-) تعني داخل أو داخلي، مثل Endocardium (البطانة الداخلية للقلب) وEndocrine (إفراز داخلي)."
+      },
+      {
+        lecture: 3, qNum: 11,
+        q: "Sub- means:",
+        options: ["Under", "Between", "Around", "Many"],
+        correct: 0,
+        explanation: "البادئة (sub-) تعني تحت أو أسفل، مثل Subcutaneous (تحت الجلد) وSublingual (تحت اللسان)."
+      },
+      {
+        lecture: 3, qNum: 12,
+        q: "Inter- means:",
+        options: ["Between", "Within", "Above", "Without"],
+        correct: 0,
+        explanation: "البادئة (inter-) تعني بين (بين تركيبين أو أكثر)، مثل Intercostal (بين الضلوع)."
+      },
+      {
+        lecture: 3, qNum: 13,
+        q: "Pre- and post- are best contrasted as:",
+        options: ["Fast and slow", "High and low", "Before and after", "Many and few"],
+        correct: 2,
+        explanation: "البادئة (pre-) تعني قبل (مثل Preoperative قبل الجراحة)، بينما (post-) تعني بعد (مثل Postoperative بعد الجراحة)."
+      },
+      {
+        lecture: 3, qNum: 14,
+        q: "Intra- is best distinguished from inter- because intra- means:",
+        options: ["Between", "After", "Within", "Under"],
+        correct: 2,
+        explanation: "الفرق الجوهري بينهما: (inter-) تعني بين شيئين، أما (intra-) فتعني داخل الشيء نفسه، مثل Intravenous (داخل الوريد) وIntramuscular (داخل العضلة)."
+      },
+      {
+        lecture: 3, qNum: 15,
+        q: "Tachycardia means:",
+        options: [
+          "Slow heart rate",
+          "Fast heart rate",
+          "Low blood pressure",
+          "Absent heartbeat"
+        ],
+        correct: 1,
+        explanation: "تتكون من (tachy-) سريع + (cardi/o) قلب + (-ia) حالة، أي تسارع معدل ضربات القلب."
+      },
+      {
+        lecture: 3, qNum: 16,
+        q: "Hypotension means:",
+        options: [
+          "High blood pressure",
+          "Fast breathing",
+          "Low blood pressure",
+          "Low urine output"
+        ],
+        correct: 2,
+        explanation: "البادئة (hypo-) تعني انخفاض و(-tension) تشير للضغط، فالمصطلح يعني انخفاض ضغط الدم."
+      },
+      {
+        lecture: 3, qNum: 17,
+        q: "Intercostal means:",
+        options: [
+          "Within a rib",
+          "Below the ribs",
+          "Around the heart",
+          "Between the ribs"
+        ],
+        correct: 3,
+        explanation: "البادئة (inter-) تعني بين، والجذر (cost/o) يعني ضلع، واللاحقة (-al) تعني متعلق بـ، فيكون المعنى بين الضلوع."
+      },
+      {
+        lecture: 3, qNum: 18,
+        q: "A pulse of 46/min is most appropriately described by which term?",
+        options: ["Tachycardia", "Bradycardia", "Polyuria", "Hyperglycemia"],
+        correct: 1,
+        explanation: "المعدل الطبيعي للنبض أثناء الراحة هو 60–100 نبضة/دقيقة؛ لذا فإن انخفاض النبض إلى 46/دقيقة يُوصف سريرياً ببطء القلب (Bradycardia)."
+      },
+      {
+        lecture: 3, qNum: 19,
+        q: "Which pair is correctly matched?",
+        options: [
+          "Polyuria - scanty urine",
+          "Oliguria - excessive urine",
+          "Hypoglycemia - high blood glucose",
+          "Hyperglycemia - high blood glucose"
+        ],
+        correct: 3,
+        explanation: "التطابق الصحيح هو (Hyperglycemia = high blood glucose) لأن hyper تعني مرتفع؛ أما Polyuria فتعني كثرة البول وOliguria تعني قلة البول."
+      },
+      {
+        lecture: 3, qNum: 20,
+        q: "Which statement best reflects safe interpretation of prefixes?",
+        options: [
+          "The prefix alone always gives the complete diagnosis",
+          "Every medical word must contain a prefix",
+          "Similar-looking prefixes can be used interchangeably",
+          "Prefixes modify meaning but must be interpreted in the full clinical term"
+        ],
+        correct: 3,
+        explanation: "البادئة تعدل معنى المصطلح فقط، ولا تعطي تشخيصاً كاملاً بمفردها، كما يجب الانتباه للفروق الدقيقة بين البادئات المتشابهة في الإملاء (مثل inter- و intra-) وتفسيرها ضمن الكلمة الكاملة."
+      },
+
+      // ==================== LECTURE 04 (61 - 80) ====================
+      {
+        lecture: 4, qNum: 1,
+        q: "Which suffix means inflammation?",
+        options: ["-algia", "-megaly", "-itis", "-pathy"],
+        correct: 2,
+        explanation: "اللاحقة (-itis) تعني التهاب، بينما (-algia) ألم، و(-megaly) تضخم، و(-pathy) مرض."
+      },
+      {
+        lecture: 4, qNum: 2,
+        q: "The suffix -algia means:",
+        options: ["Disease", "Blood condition", "Enlargement", "Pain"],
+        correct: 3,
+        explanation: "اللاحقة (-algia) تدل على وجود ألم، مثل Neuralgia (ألم العصب) وMyalgia (ألم العضلات)."
+      },
+      {
+        lecture: 4, qNum: 3,
+        q: "-megaly indicates:",
+        options: ["Puncture", "Enlargement", "Decrease", "Study"],
+        correct: 1,
+        explanation: "اللاحقة (-megaly) تدل على تضخم أو كبر حجم العضو، مثل Splenomegaly (تضخم الطحال)."
+      },
+      {
+        lecture: 4, qNum: 4,
+        q: "-emia indicates a:",
+        options: [
+          "Urine condition",
+          "Joint condition",
+          "Skin procedure",
+          "Blood condition"
+        ],
+        correct: 3,
+        explanation: "اللاحقة (-emia) تشير دائماً إلى حالة أو مادة موجودة في الدم، مثل Anemia أو Bacteremia."
+      },
+      {
+        lecture: 4, qNum: 5,
+        q: "-uria most directly refers to a:",
+        options: [
+          "Blood condition",
+          "Nerve disease",
+          "Specialty",
+          "Urine-related condition"
+        ],
+        correct: 3,
+        explanation: "اللاحقة (-uria) تشير إلى البول أو التبول، مثل Hematuria (دم في البول) أو Polyuria (كثرة التبول)."
+      },
+      {
+        lecture: 4, qNum: 6,
+        q: "-pathy means:",
+        options: ["Disease", "Study of", "Repair", "Incision"],
+        correct: 0,
+        explanation: "اللاحقة (-pathy) تعني مرض أو اعتلال عام في العضو، مثل Neuropathy (اعتلال الأعصاب)."
+      },
+      {
+        lecture: 4, qNum: 7,
+        q: "-penia most often indicates:",
+        options: ["Increase", "Deficiency or decrease", "Opening", "Recording"],
+        correct: 1,
+        explanation: "اللاحقة (-penia) تدل على نقص أو انخفاض غير طبيعي (غالباً في عدد الخلايا أو الكثافة)، مثل Leukopenia (نقص كريات الدم البيضاء)."
+      },
+      {
+        lecture: 4, qNum: 8,
+        q: "-cytosis commonly indicates:",
+        options: [
+          "Increased cell number",
+          "Decreased cell number",
+          "Cell pain",
+          "Cell removal"
+        ],
+        correct: 0,
+        explanation: "اللاحقة (-cytosis) تدل على زيادة غير طبيعية في عدد الخلايا، مثل Leukocytosis (ارتفاع عدد كريات الدم البيضاء)."
+      },
+      {
+        lecture: 4, qNum: 9,
+        q: "Which suffix means surgical removal?",
+        options: ["-ectomy", "-otomy", "-ostomy", "-scopy"],
+        correct: 0,
+        explanation: "اللاحقة (-ectomy) تعني الاستئصال الجراحي الكامل أو الجزئي للعضو، مثل Appendectomy (استئصال الزائدة الدودية)."
+      },
+      {
+        lecture: 4, qNum: 10,
+        q: "Which suffix means incision into?",
+        options: ["-otomy", "-ectomy", "-plasty", "-gram"],
+        correct: 0,
+        explanation: "اللاحقة (-otomy) تعني عمل شق جراحي أو قطع في العضو دون استئصاله، مثل Laparotomy (فتح البطن الجراحي)."
+      },
+      {
+        lecture: 4, qNum: 11,
+        q: "Which suffix means creation of an opening?",
+        options: ["-algia", "-graphy", "-centesis", "-ostomy"],
+        correct: 3,
+        explanation: "اللاحقة (-ostomy) تعني عمل فتحة أو فغرة جراحية دائمة أو مؤقتة لتصريف أو تهوية، مثل Colostomy أو Tracheostomy."
+      },
+      {
+        lecture: 4, qNum: 12,
+        q: "Which suffix means visual examination?",
+        options: ["-logy", "-scopy", "-gram", "-emia"],
+        correct: 1,
+        explanation: "اللاحقة (-scopy) تعني الفحص البصري المباشر لداخل عضو أو تجويف باستخدام المنظار."
+      },
+      {
+        lecture: 4, qNum: 13,
+        q: "-centesis means:",
+        options: [
+          "Surgical repair",
+          "Study of",
+          "Surgical puncture",
+          "Specialist"
+        ],
+        correct: 2,
+        explanation: "اللاحقة (-centesis) تعني البزل الجراحي (إدخال إبرة لسحب سائل من تجويف)، مثل Thoracentesis (بزل الصدر)."
+      },
+      {
+        lecture: 4, qNum: 14,
+        q: "-plasty indicates:",
+        options: [
+          "Removal",
+          "Puncture",
+          "Surgical repair",
+          "Blood condition"
+        ],
+        correct: 2,
+        explanation: "اللاحقة (-plasty) تعني الإصلاح الجراحي أو التجميل أو الاستبدال الوظيفي، مثل Arthroplasty (جراحة إصلاح أو استبدال المفصل)."
+      },
+      {
+        lecture: 4, qNum: 15,
+        q: "-graphy most closely means:",
+        options: [
+          "A specialist",
+          "Process of recording or imaging",
+          "The record itself",
+          "Pain"
+        ],
+        correct: 1,
+        explanation: "اللاحقة (-graphy) تعني عملية التسجيل أو التصوير نفسها (Process of recording)، مثل Electrocardiography."
+      },
+      {
+        lecture: 4, qNum: 16,
+        q: "-gram refers to the:",
+        options: [
+          "Record or image produced",
+          "Process of studying",
+          "Surgical opening",
+          "Inflammation"
+        ],
+        correct: 0,
+        explanation: "اللاحقة (-gram) تعني الناتج النهائي الملموس وهو السجل أو الصورة أو التخطيط الناتج عن الفحص، مثل Electrocardiogram."
+      },
+      {
+        lecture: 4, qNum: 17,
+        q: "A pathologist is best identified by which suffix?",
+        options: ["-logy", "-gram", "-itis", "-logist"],
+        correct: 3,
+        explanation: "اللاحقة (-logist) تدل على الشخص المتخصص أو الطبيب المختص في مجال معين (أما -logy فتعني العلم نفسه)."
+      },
+      {
+        lecture: 4, qNum: 18,
+        q: "Tracheotomy and tracheostomy differ because tracheotomy is:",
+        options: [
+          "Removal of the trachea",
+          "Creation of an opening into the trachea",
+          "Incision into the trachea",
+          "Visual examination of the trachea"
+        ],
+        correct: 2,
+        explanation: "الفرق بينهما دقيق ومهم: (-otomy) في Tracheotomy تعني عمل شق جراحي في القصبة الهوائية، بينما (-ostomy) في Tracheostomy تعني إنشاء فتحة مستمرة فيها."
+      },
+      {
+        lecture: 4, qNum: 19,
+        q: "Thrombocytopenia most directly indicates:",
+        options: [
+          "Increased platelet count",
+          "Platelet inflammation",
+          "Decreased platelet count",
+          "Platelet imaging"
+        ],
+        correct: 2,
+        explanation: "يتكون المصطلح من (thromb/o) جلطة/صفيحة + (cyt/o) خلية + (-penia) نقص، فيعني نقص عدد الصفائح الدموية."
+      },
+      {
+        lecture: 4, qNum: 20,
+        q: "Which term is correctly matched with its procedural suffix?",
+        options: [
+          "Appendectomy - incision into appendix",
+          "Arthroscopy - visual examination of a joint",
+          "Colostomy - surgical removal of colon",
+          "Thoracentesis - surgical repair of thorax"
+        ],
+        correct: 1,
+        explanation: "التطابق الصحيح الوحيد هو (Arthroscopy = visual examination of a joint)؛ لأن Appendectomy استئصال، وColostomy عمل فتحة، وThoracentesis بزل لسحب السوائل."
+      },
+
+      // ==================== LECTURE 05 (81 - 100) ====================
+      {
+        lecture: 5, qNum: 1,
+        q: "Superior means:",
+        options: [
+          "Toward the head or above",
+          "Toward the feet",
+          "Away from the midline",
+          "Toward the back"
+        ],
+        correct: 0,
+        explanation: "الاتجاه (Superior) يعني علوي أو باتجاه الرأس أو أعلى من تركيب آخر."
+      },
+      {
+        lecture: 5, qNum: 2,
+        q: "Inferior means:",
+        options: [
+          "Toward the head",
+          "Toward the front",
+          "Near the surface",
+          "Toward the feet or below"
+        ],
+        correct: 3,
+        explanation: "الاتجاه (Inferior) هو عكس Superior ويعني سفلي أو باتجاه القدمين أو أسفل من تركيب آخر."
+      },
+      {
+        lecture: 5, qNum: 3,
+        q: "Anterior means:",
+        options: [
+          "Toward the front",
+          "Toward the back",
+          "Away from the midline",
+          "Farther from origin"
+        ],
+        correct: 0,
+        explanation: "الاتجاه (Anterior) ويعرف أيضاً بـ Ventral يعني أمامي أو باتجاه مقدمة الجسم."
+      },
+      {
+        lecture: 5, qNum: 4,
+        q: "Posterior means:",
+        options: [
+          "Toward the front",
+          "Toward the midline",
+          "Near the surface",
+          "Toward the back"
+        ],
+        correct: 3,
+        explanation: "الاتجاه (Posterior) ويعرف أيضاً بـ Dorsal يعني خلفي أو باتجاه ظهر الجسم."
+      },
+      {
+        lecture: 5, qNum: 5,
+        q: "Medial means:",
+        options: [
+          "Away from midline",
+          "Toward feet",
+          "Toward surface",
+          "Toward the midline"
+        ],
+        correct: 3,
+        explanation: "الاتجاه (Medial) يعني إنسي أو قريب من الخط المنصف الطولي للجسم (Midline)."
+      },
+      {
+        lecture: 5, qNum: 6,
+        q: "Lateral means:",
+        options: [
+          "Toward the midline",
+          "Toward the head",
+          "Near the point of origin",
+          "Away from the midline"
+        ],
+        correct: 3,
+        explanation: "الاتجاه (Lateral) هو عكس Medial ويعني وحشي أو جانبي أي بعيداً عن الخط المنصف للجسم."
+      },
+      {
+        lecture: 5, qNum: 7,
+        q: "Proximal means:",
+        options: [
+          "Farther from point of origin",
+          "Toward the back",
+          "Nearer the point of origin or attachment",
+          "Same side"
+        ],
+        correct: 2,
+        explanation: "يُستخدم (Proximal) غالباً في الأطراف ويعني الأقرب إلى نقطة المنشأ أو اتصال الطرف بالجذع."
+      },
+      {
+        lecture: 5, qNum: 8,
+        q: "Distal means:",
+        options: [
+          "Farther from point of origin or attachment",
+          "Nearer the trunk",
+          "Toward the midline",
+          "Above"
+        ],
+        correct: 0,
+        explanation: "الاتجاه (Distal) هو عكس Proximal ويعني الأبعد عن نقطة المنشأ أو اتصال الطرف بالجذع."
+      },
+      {
+        lecture: 5, qNum: 9,
+        q: "Superficial means:",
+        options: [
+          "Farther from the body surface",
+          "Near the body surface",
+          "Opposite side",
+          "Toward the feet"
+        ],
+        correct: 1,
+        explanation: "المصطلح (Superficial) يعني سطحي أو قريب من سطح الجلد/الجسم (وعكسه Deep أي عميق)."
+      },
+      {
+        lecture: 5, qNum: 10,
+        q: "Ipsilateral means:",
+        options: [
+          "Same side",
+          "Opposite sides",
+          "Above",
+          "Toward the midline"
+        ],
+        correct: 0,
+        explanation: "البادئة (ipsi-) تعني نفس، لذا (Ipsilateral) تعني على نفس الجانب من الجسم (مثلاً اليد اليمنى والقدم اليمنى)."
+      },
+      {
+        lecture: 5, qNum: 11,
+        q: "Contralateral means:",
+        options: [
+          "Same side",
+          "Near surface",
+          "Far from origin",
+          "Opposite sides"
+        ],
+        correct: 3,
+        explanation: "البادئة (contra-) تعني مقابل أو مضاد، لذا (Contralateral) تعني على الجانب المقابل أو المعاكس من الجسم."
+      },
+      {
+        lecture: 5, qNum: 12,
+        q: "A patient lying face upward is:",
+        options: ["Prone", "Distal", "Supine", "Coronal"],
+        correct: 2,
+        explanation: "الاستلقاء على الظهر بحيث يكون الوجه للأعلى يُسمى (Supine)، بينما الاستلقاء على البطن والوجه للأسفل يُسمى (Prone)."
+      },
+      {
+        lecture: 5, qNum: 13,
+        q: "A sagittal plane divides the body into:",
+        options: [
+          "Left and right",
+          "Front and back",
+          "Upper and lower",
+          "Superficial and deep"
+        ],
+        correct: 0,
+        explanation: "المستوى السهمي (Sagittal plane) يمر طولياً ليقسم الجسم إلى جزء أيمن وجزء أيسر (Left and right)."
+      },
+      {
+        lecture: 5, qNum: 14,
+        q: "A coronal plane divides the body into:",
+        options: [
+          "Left and right",
+          "Front and back",
+          "Upper and lower",
+          "Medial and lateral"
+        ],
+        correct: 1,
+        explanation: "المستوى الإكليلي أو الجبهي (Coronal / Frontal plane) يقسم الجسم إلى جزء أمامي وجزء خلفي (Front and back)."
+      },
+      {
+        lecture: 5, qNum: 15,
+        q: "A transverse plane divides the body into:",
+        options: [
+          "Front and back",
+          "Upper and lower parts",
+          "Left and right",
+          "Near and far"
+        ],
+        correct: 1,
+        explanation: "المستوى المستعرض أو الأفقي (Transverse / Horizontal plane) يقسم الجسم إلى جزء علوي وجزء سفلي (Upper and lower parts)."
+      },
+      {
+        lecture: 5, qNum: 16,
+        q: "The sternum is _____ to the heart.",
+        options: ["Posterior", "Distal", "Anterior", "Lateral"],
+        correct: 2,
+        explanation: "عظمة القص (Sternum) تقع في مقدمة القفص الصدري أمام القلب مباشرة، لذا فهي أمامية (Anterior) بالنسبة للقلب."
+      },
+      {
+        lecture: 5, qNum: 17,
+        q: "The wrist is _____ to the elbow.",
+        options: ["Proximal", "Distal", "Medial", "Superior"],
+        correct: 1,
+        explanation: "الرسغ (Wrist) أبعد عن اتصال الذراع بالكتف مقارنة بالكوع (Elbow)، لذلك يُوصف بأنه أبعد (Distal) بالنسبة للكوع."
+      },
+      {
+        lecture: 5, qNum: 18,
+        q: "RUQ stands for:",
+        options: [
+          "Right urinary quadrant",
+          "Regional upper quadrant",
+          "Right upper quadrant",
+          "Right unilateral quarter"
+        ],
+        correct: 2,
+        explanation: "الاختصار السريري الشائع لتقسيم البطن (RUQ) يشير إلى الربع العلوي الأيمن للبطن (Right upper quadrant)."
+      },
+      {
+        lecture: 5, qNum: 19,
+        q: "Which statement is correct?",
+        options: [
+          "Right and left refer to the observer",
+          "Proximal and distal are best used for every body structure equally",
+          "Anatomical position remains the reference even if the patient is lying down",
+          "RLQ is a diagnosis"
+        ],
+        correct: 2,
+        explanation: "الوضع التشريحي القياسي (Anatomical position) يظل دائماً هو المرجع الثابت لوصف الاتجاهات واليمين واليسار الخاص بالمريض حتى لو كان المريض مستلقياً على السرير."
+      },
+      {
+        lecture: 5, qNum: 20,
+        q: "Tenderness in the RLQ is best interpreted as:",
+        options: [
+          "A complete diagnosis",
+          "A location statement",
+          "A laboratory value",
+          "A procedure"
+        ],
+        correct: 1,
+        explanation: "عبارة (Tenderness in the RLQ) تحدد فقط مكان الألم عند الفحص (في الربع السفلي الأيمن للبطن)، فهي بيان موقعي (Location statement) وليست تشخيصاً نهائياً بحد ذاتها."
+      },
+
+      // ==================== LECTURE 06 (101 - 120) ====================
+      {
+        lecture: 6, qNum: 1,
+        q: "Cardi/o refers to the:",
+        options: ["Heart", "Liver", "Vessel", "Blood"],
+        correct: 0,
+        explanation: "الشكل المركب (cardi/o) يشير إلى القلب (Heart)."
+      },
+      {
+        lecture: 6, qNum: 2,
+        q: "Angi/o refers to a:",
+        options: ["Nerve", "Joint", "Vessel", "Gland"],
+        correct: 2,
+        explanation: "الشكل المركب (angi/o) يشير إلى الوعاء (خاصة الوعاء الدموي أو اللمفاوي)، مثل Angiography (تصوير الأوعية)."
+      },
+      {
+        lecture: 6, qNum: 3,
+        q: "Arteri/o refers to an:",
+        options: ["Vein", "Artery", "RBC", "Platelet"],
+        correct: 1,
+        explanation: "الشكل المركب (arteri/o) يشير تحديداً إلى الشريان (Artery)، مثل Arteriosclerosis (تصلب الشرايين)."
+      },
+      {
+        lecture: 6, qNum: 4,
+        q: "Phleb/o and ven/o refer to a:",
+        options: ["Heart chamber", "Clot", "Bone", "Vein"],
+        correct: 3,
+        explanation: "كلا الشكلين المركبين (phleb/o) و(ven/o) يشيران إلى الوريد (Vein)، مثل Phlebitis (التهاب الوريد) وVenipuncture (بزل الوريد)."
+      },
+      {
+        lecture: 6, qNum: 5,
+        q: "Hemat/o or hem/o refers to:",
+        options: ["Muscle", "White only", "Heart muscle", "Blood"],
+        correct: 3,
+        explanation: "يشير (hemat/o) أو (hem/o) إلى الدم (Blood) بصفة عامة."
+      },
+      {
+        lecture: 6, qNum: 6,
+        q: "Erythr/o most closely refers to:",
+        options: ["White", "Red", "Clot", "Vessel"],
+        correct: 1,
+        explanation: "الشكل المركب (erythr/o) يدل على اللون الأحمر، ومنه Erythrocyte أي خلية الدم الحمراء."
+      },
+      {
+        lecture: 6, qNum: 7,
+        q: "Leuk/o refers to:",
+        options: ["Red", "White", "Platelet", "Artery"],
+        correct: 1,
+        explanation: "الشكل المركب (leuk/o) يدل على اللون الأبيض، ومنه Leukocyte أي خلية الدم البيضاء."
+      },
+      {
+        lecture: 6, qNum: 8,
+        q: "Thromb/o refers to:",
+        options: ["Clot", "Liver", "Vein only", "Oxygen"],
+        correct: 0,
+        explanation: "الشكل المركب (thromb/o) يدل على الجلطة أو التخثر (Clot)، ومنه Thrombosis (تجلط الدم) وThrombocyte (الصفيحة الدموية)."
+      },
+      {
+        lecture: 6, qNum: 9,
+        q: "Coagul/o refers to:",
+        options: ["Respiration", "Coagulation", "Digestion", "Urination"],
+        correct: 1,
+        explanation: "الشكل المركب (coagul/o) يشير إلى عملية التجلط أو التخثر (Coagulation)، ومنه Anticoagulant (مضاد للتجلط)."
+      },
+      {
+        lecture: 6, qNum: 10,
+        q: "Hemoglobin is best described as the:",
+        options: [
+          "Percentage of blood occupied by RBCs",
+          "Number of WBCs",
+          "Oxygen-carrying protein in RBCs",
+          "Primary clotting cell"
+        ],
+        correct: 2,
+        explanation: "الهيموجلوبين (Hemoglobin) هو البروتين الحامل للأكسجين داخل خلايا الدم الحمراء، وهو المسؤول عن نقل الأكسجين من الرئتين للأنسجة."
+      },
+      {
+        lecture: 6, qNum: 11,
+        q: "Hematocrit refers to the:",
+        options: [
+          "Amount of glucose in blood",
+          "Fraction or percentage of blood occupied by RBCs",
+          "Amount of oxygen in tissue",
+          "Number of platelets only"
+        ],
+        correct: 1,
+        explanation: "الهيماتوكريت (Hematocrit) هو مقياس يحدد النسبة المئوية لحجم خلايا الدم الحمراء من إجمالي حجم الدم الكلي."
+      },
+      {
+        lecture: 6, qNum: 12,
+        q: "Tachycardia means:",
+        options: [
+          "Slow heart rate",
+          "High blood pressure",
+          "Rapid heart rate",
+          "Low blood pressure"
+        ],
+        correct: 2,
+        explanation: "مصطلح (Tachycardia) يعني سرعة معدل ضربات القلب (أكثر من 100 نبضة في الدقيقة عند البالغين في الراحة)."
+      },
+      {
+        lecture: 6, qNum: 13,
+        q: "Bradycardia means:",
+        options: [
+          "Rapid heart rate",
+          "Increased WBC count",
+          "Slow heart rate",
+          "Low platelet count"
+        ],
+        correct: 2,
+        explanation: "مصطلح (Bradycardia) يعني بطء معدل ضربات القلب (أقل من 60 نبضة في الدقيقة عند البالغين في الراحة)."
+      },
+      {
+        lecture: 6, qNum: 14,
+        q: "Hypertension refers to:",
+        options: [
+          "Elevated blood pressure",
+          "Low blood pressure",
+          "Low hemoglobin",
+          "Increased platelets"
+        ],
+        correct: 0,
+        explanation: "مصطلح (Hypertension) يتكون من (hyper-) مرتفع + (-tension) ضغط، ويشير إلى ارتفاع ضغط الدم الشرياني."
+      },
+      {
+        lecture: 6, qNum: 15,
+        q: "Leukocytosis describes:",
+        options: [
+          "Decreased WBC count",
+          "Low platelet count",
+          "RBC destruction",
+          "Increased WBC count"
+        ],
+        correct: 3,
+        explanation: "تجمع الكلمة بين (leuk/o) أبيض + (cyt/o) خلية + (-osis) زيادة، وتعني ارتفاع عدد كريات الدم البيضاء (غالباً استجابة لعدوى أو التهاب)."
+      },
+      {
+        lecture: 6, qNum: 16,
+        q: "Leukopenia describes:",
+        options: [
+          "Increased WBC count",
+          "High blood pressure",
+          "Clot formation",
+          "Decreased WBC count"
+        ],
+        correct: 3,
+        explanation: "تنتهي الكلمة باللاحقة (-penia) التي تعني نقصاً، لذا فـ (Leukopenia) تعني انخفاض عدد كريات الدم البيضاء."
+      },
+      {
+        lecture: 6, qNum: 17,
+        q: "Thrombocytopenia means:",
+        options: [
+          "Decreased platelet count",
+          "Increased platelet count",
+          "Increased RBC count",
+          "Clot formation"
+        ],
+        correct: 0,
+        explanation: "تشير (thrombocyt/o) للصفائح الدموية و(-penia) للنقص، فيكون المعنى انخفاض عدد الصفائح الدموية مما يزيد قابلية النزيف."
+      },
+      {
+        lecture: 6, qNum: 18,
+        q: "Hemolysis means:",
+        options: [
+          "Formation of RBCs",
+          "Increase in WBCs",
+          "Destruction or lysis of RBCs",
+          "Low blood pressure"
+        ],
+        correct: 2,
+        explanation: "تتكون من (hem/o) دم + (-lysis) تحلل أو تكسير، وتعني تكسير وتحلل خلايا الدم الحمراء."
+      },
+      {
+        lecture: 6, qNum: 19,
+        q: "Which statement about anemia is correct?",
+        options: [
+          "It is synonymous with low blood volume",
+          "It always identifies the cause",
+          "It means low platelet count",
+          "It describes reduced oxygen-carrying capacity, commonly reflected by low Hb"
+        ],
+        correct: 3,
+        explanation: "الأنيميا أو فقر الدم (Anemia) تعني انخفاض قدرة الدم على حمل الأكسجين، وهو ما يظهر غالباً في التحاليل بانخفاض مستوى الهيموجلوبين (Hb)، ولا تحدد السبب بمفردها."
+      },
+      {
+        lecture: 6, qNum: 20,
+        q: "A CBC result showing a low platelet count is best described by the term:",
+        options: [
+          "Thrombocytopenia",
+          "Thrombosis",
+          "Leukocytosis",
+          "Hemolysis"
+        ],
+        correct: 0,
+        explanation: "عندما يُظهر تحليل صورة الدم الكاملة (CBC) انخفاضاً في عدد الصفائح الدموية، فإن المصطلح الطبي الدقيق لوصف هذه النتيجة هو (Thrombocytopenia)."
+      }
+    ];
+
+    // =========================================================================
+    // APPLICATION STATE & LOGIC
+    // =========================================================================
+    let currentMode = null; // 1..6 or 'comprehensive'
+    let activeQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let userAnswers = []; // Stores { questionObj, chosenIdx, isCorrect }
+    let hasAnsweredCurrent = false;
+
+    const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
+
+    // Initialize Home Screen Cards
+    function initHome() {
+      const grid = document.getElementById('lecturesGrid');
+      grid.innerHTML = '';
+
+      LECTURES_META.forEach(lec => {
+        const card = document.createElement('button');
+        card.onclick = () => startQuiz(lec.id);
+        card.className = "text-right bg-white hover:bg-teal-50/40 border border-slate-200 hover:border-teal-400 rounded-2xl p-5 shadow-sm hover:shadow transition-all flex flex-col justify-between group";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-extrabold bg-teal-100 text-teal-800 px-2.5 py-1 rounded-lg">
+                ${lec.arTitle}
+              </span>
+              <span class="text-xs font-medium text-slate-400 group-hover:text-teal-700 transition">
+                10 من 20 سؤال ←
+              </span>
+            </div>
+            <h4 class="en-text text-sm font-bold text-slate-800 mb-1.5 leading-snug">
+              ${lec.enTitle}
+            </h4>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              ${lec.desc}
+            </p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Fisher-Yates Shuffle
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    // Generate 10 Random Questions based on Mode
+    function generateQuizQuestions(mode) {
+      if (mode === 'comprehensive') {
+        // Randomly choose 4 lectures to contribute 2 questions each, and 2 lectures to contribute 1 question each (4*2 + 2*1 = 10)
+        const lectureIds = shuffleArray([1, 2, 3, 4, 5, 6]);
+        const twoQuestionLectures = lectureIds.slice(0, 4);
+        const oneQuestionLectures = lectureIds.slice(4, 6);
+
+        let selected = [];
+
+        twoQuestionLectures.forEach(lecId => {
+          const pool = QUESTION_BANK.filter(q => q.lecture === lecId);
+          const picked = shuffleArray(pool).slice(0, 2);
+          selected.push(...picked);
+        });
+
+        oneQuestionLectures.forEach(lecId => {
+          const pool = QUESTION_BANK.filter(q => q.lecture === lecId);
+          const picked = shuffleArray(pool).slice(0, 1);
+          selected.push(...picked);
+        });
+
+        return shuffleArray(selected);
+      } else {
+        const pool = QUESTION_BANK.filter(q => q.lecture === mode);
+        return shuffleArray(pool).slice(0, 10);
+      }
+    }
+
+    // Start Quiz
+    function startQuiz(mode) {
+      currentMode = mode;
+      activeQuestions = generateQuizQuestions(mode);
+      currentIndex = 0;
+      score = 0;
+      userAnswers = [];
+      hasAnsweredCurrent = false;
+
+      // Update Mode Badge
+      const badge = document.getElementById('quizModeBadge');
+      if (mode === 'comprehensive') {
+        badge.textContent = "امتحان شامل (المحاضرات 1 – 6)";
+        badge.className = "text-xs sm:text-sm font-bold bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-xl";
+      } else {
+        const meta = LECTURES_META.find(l => l.id === mode);
+        badge.textContent = meta ? meta.arTitle : `المحاضرة ${mode}`;
+        badge.className = "text-xs sm:text-sm font-bold bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-xl";
+      }
+
+      switchScreen('quizScreen');
+      renderCurrentQuestion();
+    }
+
+    // Render Question UI
+    function renderCurrentQuestion() {
+      hasAnsweredCurrent = false;
+      const qObj = activeQuestions[currentIndex];
+      const meta = LECTURES_META.find(l => l.id === qObj.lecture);
+
+      // Update Top Counters & Progress
+      document.getElementById('questionCounter').textContent = `سؤال ${currentIndex + 1} من ${activeQuestions.length}`;
+      document.getElementById('liveScoreBadge').textContent = `الصح: ${score}`;
+      document.getElementById('progressBar').style.width = `${((currentIndex + 1) / activeQuestions.length) * 100}%`;
+
+      document.getElementById('questionLectureTag').textContent = `${meta.arTitle} (Lecture 0${qObj.lecture})`;
+      document.getElementById('questionOrigNumTag').textContent = `سؤال رقم ${qObj.qNum} في المحاضرة`;
+      document.getElementById('questionText').textContent = qObj.q;
+
+      // Reset Explanation & Next Button
+      const expBox = document.getElementById('explanationBox');
+      expBox.classList.add('hidden');
+      document.getElementById('nextQuestionBtn').classList.add('hidden');
+      document.getElementById('selectHintText').classList.remove('hidden');
+
+      // Render Options
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      qObj.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = `optBtn_${idx}`;
+        btn.onclick = () => selectOption(idx);
+        btn.className = "en-text w-full p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-teal-400 hover:bg-slate-50 transition-all flex items-center gap-3.5 text-left font-medium text-slate-800 shadow-2xs";
+        btn.innerHTML = `
+          <span id="optBadge_${idx}" class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 font-bold text-sm flex items-center justify-center shrink-0 transition-colors">
+            ${OPTION_LETTERS[idx]}
+          </span>
+          <span class="text-sm sm:text-base leading-snug flex-1">${optText}</span>
+        `;
+        container.appendChild(btn);
+      });
+    }
+
+    // Handle Option Selection & Immediate Feedback
+    function selectOption(chosenIdx) {
+      if (hasAnsweredCurrent) return;
+      hasAnsweredCurrent = true;
+
+      const qObj = activeQuestions[currentIndex];
+      const correctIdx = qObj.correct;
+      const isCorrect = chosenIdx === correctIdx;
+
+      if (isCorrect) {
+        score++;
+        document.getElementById('liveScoreBadge').textContent = `الصح: ${score}`;
+      }
+
+      userAnswers.push({
+        questionObj: qObj,
+        chosenIdx,
+        isCorrect
+      });
+
+      // Lock & Style All Option Buttons
+      qObj.options.forEach((_, idx) => {
+        const btn = document.getElementById(`optBtn_${idx}`);
+        const badge = document.getElementById(`optBadge_${idx}`);
+        btn.disabled = true;
+        btn.classList.remove('hover:border-teal-400', 'hover:bg-slate-50');
+
+        if (idx === correctIdx) {
+          // Always light up correct answer in Green
+          btn.className = "en-text w-full p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-950 flex items-center gap-3.5 text-left font-bold shadow-sm transition-all";
+          badge.className = "w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold text-sm flex items-center justify-center shrink-0";
+          badge.textContent = "✓";
+        } else if (idx === chosenIdx && !isCorrect) {
+          // Light up wrong user selection in Red
+          btn.className = "en-text w-full p-4 rounded-xl border-2 border-rose-500 bg-rose-50 text-rose-950 flex items-center gap-3.5 text-left font-bold shadow-sm transition-all";
+          badge.className = "w-8 h-8 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0";
+          badge.textContent = "✕";
+        } else {
+          // Dim other options
+          btn.className = "en-text w-full p-4 rounded-xl border-2 border-slate-100 bg-slate-50/70 text-slate-400 flex items-center gap-3.5 text-left font-medium opacity-75";
+        }
+      });
+
+      // Show Arabic Conceptual Explanation Immediately
+      const expBox = document.getElementById('explanationBox');
+      const statusIcon = document.getElementById('feedbackStatusIcon');
+      const statusTitle = document.getElementById('feedbackStatusTitle');
+      const expText = document.getElementById('explanationText');
+
+      if (isCorrect) {
+        expBox.className = "mt-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50/70 p-4 sm:p-5 animate-fade-up";
+        statusIcon.className = "w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-sm text-white shrink-0";
+        statusIcon.textContent = "✓";
+        statusTitle.className = "font-extrabold text-base sm:text-lg text-emerald-900";
+        statusTitle.textContent = "إجابة صحيحة! شرح السؤال وسبب الاختيار:";
+      } else {
+        expBox.className = "mt-6 rounded-2xl border-2 border-rose-200 bg-rose-50/70 p-4 sm:p-5 animate-fade-up";
+        statusIcon.className = "w-7 h-7 rounded-full bg-rose-600 flex items-center justify-center font-bold text-sm text-white shrink-0";
+        statusIcon.textContent = "!";
+        statusTitle.className = "font-extrabold text-base sm:text-lg text-rose-900";
+        statusTitle.textContent = "إجابة خاطئة — شرح السؤال وسبب اختيار الإجابة الصحيحة:";
+      }
+
+      expText.textContent = qObj.explanation;
+      expBox.classList.remove('hidden');
+
+      // Show Next / Results Button
+      document.getElementById('selectHintText').classList.add('hidden');
+      const nextBtn = document.getElementById('nextQuestionBtn');
+      const nextLabel = document.getElementById('nextBtnLabel');
+      nextLabel.textContent = (currentIndex === activeQuestions.length - 1) ? "عرض النتيجة النهائية" : "السؤال التالي";
+      nextBtn.classList.remove('hidden');
+    }
+
+    // Advance to Next Question or Show Results
+    function nextQuestion() {
+      if (currentIndex < activeQuestions.length - 1) {
+        currentIndex++;
+        renderCurrentQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    // Display Final Results & Wrong Answers Breakdown
+    function showResults() {
+      switchScreen('resultsScreen');
+
+      const total = activeQuestions.length;
+      document.getElementById('finalScoreNum').textContent = score;
+
+      const circle = document.getElementById('scoreCircle');
+      const headline = document.getElementById('resultHeadline');
+      const subtext = document.getElementById('resultSubtext');
+
+      if (score === total) {
+        circle.className = "w-24 h-24 rounded-full mx-auto flex flex-col items-center justify-center border-4 border-emerald-500 bg-emerald-50 text-emerald-700 mb-4";
+        headline.textContent = "ممتاز جداً! 10 من 10 بدون ولا غلطة 🎉";
+        subtext.textContent = "أداء رائع، أنت متمكن تماماً من هذه الأسئلة. يمكنك إعادة الاختبار لأسئلة عشوائية جديدة أو الانتقال لمحاضرة أخرى.";
+      } else if (score >= 7) {
+        circle.className = "w-24 h-24 rounded-full mx-auto flex flex-col items-center justify-center border-4 border-teal-500 bg-teal-50 text-teal-700 mb-4";
+        headline.textContent = "نتيجة جيدة جداً! 👏";
+        subtext.textContent = `أجبت بشكل صحيح على ${score} من أصل ${total} أسئلة. راجع الأسئلة التي أخطأت فيها بالأسفل لتثبيتها نهائياً.`;
+      } else {
+        circle.className = "w-24 h-24 rounded-full mx-auto flex flex-col items-center justify-center border-4 border-amber-500 bg-amber-50 text-amber-700 mb-4";
+        headline.textContent = "تحتاج لمراجعة بسيطة 💪";
+        subtext.textContent = `حصلت على ${score} من ${total}. اقرأ شرح الأخطاء بالأسفل بتركيز ثم اضغط على (اختبار مجدداً) للتدرب مرة أخرى.`;
+      }
+
+      // Render Wrong Answers List
+      const wrongContainer = document.getElementById('wrongAnswersSection');
+      wrongContainer.innerHTML = '';
+
+      const wrongItems = userAnswers.filter(item => !item.isCorrect);
+
+      if (wrongItems.length === 0) {
+        wrongContainer.innerHTML = `
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center text-emerald-900 font-bold">
+            لا توجد أي أخطاء في هذه المحاولة! كل إجاباتك صحيحة 100%.
+          </div>
+        `;
+        return;
+      }
+
+      const sectionTitle = document.createElement('h3');
+      sectionTitle.className = "text-lg font-extrabold text-slate-800 px-1 pt-2";
+      sectionTitle.textContent = `مراجعة الأسئلة التي أخطأت فيها (${wrongItems.length} ${wrongItems.length === 1 ? 'سؤال' : 'أسئلة'}):`;
+      wrongContainer.appendChild(sectionTitle);
+
+      wrongItems.forEach((item, index) => {
+        const qObj = item.questionObj;
+        const meta = LECTURES_META.find(l => l.id === qObj.lecture);
+        const userChoiceText = `${OPTION_LETTERS[item.chosenIdx]}. ${qObj.options[item.chosenIdx]}`;
+        const correctChoiceText = `${OPTION_LETTERS[qObj.correct]}. ${qObj.options[qObj.correct]}`;
+
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border border-rose-200 p-5 sm:p-6 shadow-sm";
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-bold bg-rose-100 text-rose-800 px-2.5 py-1 rounded-lg">
+              خطأ #${index + 1} • ${meta.arTitle} (سؤال ${qObj.qNum})
+            </span>
+          </div>
+          <p class="en-text text-base sm:text-lg font-bold text-slate-900 mb-4 leading-relaxed">
+            ${qObj.q}
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+            <div class="p-3.5 rounded-xl bg-rose-50 border border-rose-200">
+              <span class="block text-xs font-bold text-rose-700 mb-1">إجابتك الخاطئة:</span>
+              <span class="en-text block text-sm font-semibold text-rose-950">${userChoiceText}</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+              <span class="block text-xs font-bold text-emerald-700 mb-1">الإجابة الصحيحة:</span>
+              <span class="en-text block text-sm font-bold text-emerald-950">${correctChoiceText}</span>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="block text-xs font-extrabold text-teal-800 mb-1">شرح السؤال وسبب اختيار الإجابة الصحيحة:</span>
+            <p class="text-sm text-slate-700 leading-relaxed">${qObj.explanation}</p>
+          </div>
+        `;
+        wrongContainer.appendChild(card);
+      });
+    }
+
+    // Retake Same Mode with Fresh Random Questions
+    function retakeQuiz() {
+      if (currentMode !== null) {
+        startQuiz(currentMode);
+      }
+    }
+
+    // Switch Active View
+    function switchScreen(screenId) {
+      ['homeScreen', 'quizScreen', 'resultsScreen'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(screenId).classList.remove('hidden');
+
+      const homeBtn = document.getElementById('homeNavBtn');
+      if (screenId === 'homeScreen') {
+        homeBtn.classList.add('hidden');
+      } else {
+        homeBtn.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goHome() {
+      switchScreen('homeScreen');
+    }
+
+    // Boot App
+    window.addEventListener('DOMContentLoaded', initHome);
+  </script>
+</body>
+</html>
