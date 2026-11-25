@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Biochemistry Exam
+  </title>
+  <style>
+   * {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  background:#eef3f8;
+  color:#15283c;
+  font:16px system-ui,sans-serif
+}
+main {
+  max-width:800px;
+  margin:auto;
+  padding:20px
+}
+header {
+  background:#142d47;
+  color:white;
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px
+}
+h1 {
+  font-size:25px;
+  margin:0 0 8px
+}
+h2 {
+  font-size:21px
+}
+small {
+  color:#63758a
+}
+header small {
+  color:#c2d5e7
+}
+.panel {
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 5px 24px #19334d12;
+  margin:12px 0
+}
+button {
+  font:inherit;
+  cursor:pointer;
+  border:1px solid #d4e0eb;
+  border-radius:12px;
+  background:white;
+  color:#17334d;
+  padding:14px;
+  text-align:right;
+  width:100%;
+  margin:5px 0;
+  min-height:48px
+}
+button:hover {
+  border-color:#2979a7
+}
+button:disabled {
+  cursor:default;
+  opacity:1
+}
+.primary {
+  background:#176c94;
+  color:white;
+  border-color:#176c94;
+  text-align:center;
+  font-weight:bold
+}
+.answer {
+  direction:ltr;
+  text-align:left;
+  line-height:1.5
+}
+.correct {
+  background:#dcfce7!important;
+  border:2px solid #168347!important;
+  color:#14532d
+}
+.wrong {
+  background:#fee2e2!important;
+  border:2px solid #c53c3c!important;
+  color:#991b1b
+}
+.bar {
+  height:9px;
+  background:#e0e8ef;
+  border-radius:20px;
+  overflow:hidden
+}
+.bar i {
+  display:block;
+  height:100%;
+  background:#1b8eaa
+}
+.en {
+  direction:ltr;
+  text-align:left;
+  line-height:1.6
+}
+.stats {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap
+}
+.score {
+  font-size:42px;
+  font-weight:800;
+  color:#176c94;
+  text-align:center
+}
+.muted {
+  color:#63758a;
+  font-size:14px
+}
+.tag {
+  display:inline-block;
+  background:#e8f2f7;
+  border-radius:8px;
+  padding:5px 9px;
+  font-size:13px
+}
+summary {
+  cursor:pointer
+}
+footer {
+  text-align:center;
+  color:#63758a;
+  font-size:12px;
+  margin:24px 0
+}
+  </style>
+ </head>
+ <body>
+  <main>
+   <header>
+    <h1>
+     Biochemistry • Exam Lab
+    </h1>
+    <small>
+     تدريب للامتحان — Amino Acids, Proteins &amp; Enzymes
+    </small>
+   </header>
+   <div id="app">
+   </div>
+   <footer>
+    يعمل بدون إنترنت • يتم حفظ التقدم على هذا المتصفح إن كان التخزين متاحًا
+   </footer>
+  </main>
+  <script>
+   const sections=[
+  {
+    "lecture": 1,
+    "title": "Structure of amino acids",
+    "page": "1",
+    "questions": [
+      {
+        "q": "What distinguishes one amino acid from another?",
+        "a": [
+          "Chemical nature of the R group",
+          "Alpha-carboxyl group",
+          "Alpha-amino group",
+          "Central carbon atom"
+        ],
+        "id": 0
+      },
+      {
+        "q": "How many DNA-coded amino acids are described as human protein building blocks?",
+        "a": [
+          "20",
+          "18",
+          "22",
+          "24"
+        ],
+        "id": 1
+      },
+      {
+        "q": "Where is the amino group attached in an alpha-amino acid?",
+        "a": [
+          "Carbon adjacent to the carboxyl group",
+          "Carboxyl carbon",
+          "Beta carbon",
+          "Terminal side-chain carbon"
+        ],
+        "id": 2
+      },
+      {
+        "q": "Which amino acid contains a rigid five-membered ring involving alpha-amino nitrogen?",
+        "a": [
+          "Proline",
+          "Histidine",
+          "Tryptophan",
+          "Phenylalanine"
+        ],
+        "id": 3
+      },
+      {
+        "q": "Why is proline called an imino acid in the lecture?",
+        "a": [
+          "Its side chain forms a ring with alpha-amino nitrogen",
+          "Its side chain contains a carboxyl group",
+          "It lacks a carboxyl group",
+          "It contains an aromatic nitrogen ring"
+        ],
+        "id": 4
+      },
+      {
+        "q": "Which form is metabolizable in mammals?",
+        "a": [
+          "L-amino acids",
+          "D-amino acids",
+          "Both equally",
+          "Only racemic mixtures"
+        ],
+        "id": 5
+      },
+      {
+        "q": "Where are D-amino acids found according to the lecture?",
+        "a": [
+          "Bacterial cell walls",
+          "Human collagen",
+          "Human hemoglobin",
+          "Mammalian ribosomes"
+        ],
+        "id": 6
+      },
+      {
+        "q": "Which amino acid is achiral?",
+        "a": [
+          "Glycine",
+          "Alanine",
+          "Serine",
+          "Valine"
+        ],
+        "id": 7
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Polarity: hydrophobic amino acids",
+    "page": "1–3",
+    "questions": [
+      {
+        "q": "Which group consists of aromatic amino acids?",
+        "a": [
+          "Phenylalanine, tyrosine, tryptophan",
+          "Valine, leucine, isoleucine",
+          "Serine, threonine, tyrosine",
+          "Histidine, lysine, arginine"
+        ],
+        "id": 8
+      },
+      {
+        "q": "Which group consists of branched-chain amino acids?",
+        "a": [
+          "Valine, leucine, isoleucine",
+          "Alanine, glycine, proline",
+          "Phenylalanine, tyrosine, tryptophan",
+          "Serine, threonine, cysteine"
+        ],
+        "id": 9
+      },
+      {
+        "q": "Where are nonpolar R groups usually located in soluble folded proteins?",
+        "a": [
+          "Interior",
+          "Aqueous exterior",
+          "Only at N-terminus",
+          "Only at C-terminus"
+        ],
+        "id": 10
+      },
+      {
+        "q": "Where are nonpolar groups of membrane proteins exposed?",
+        "a": [
+          "Lipid environment",
+          "Only aqueous cytoplasm",
+          "Only extracellular water",
+          "Only peptide backbone"
+        ],
+        "id": 11
+      },
+      {
+        "q": "Which pair is a precursor of catecholamines?",
+        "a": [
+          "Phenylalanine and tyrosine",
+          "Tryptophan and glycine",
+          "Valine and leucine",
+          "Serine and threonine"
+        ],
+        "id": 12
+      },
+      {
+        "q": "Tryptophan can form which products?",
+        "a": [
+          "Serotonin and niacin",
+          "Catecholamines and niacin",
+          "Serotonin and SAM",
+          "Histamine and catecholamines"
+        ],
+        "id": 13
+      },
+      {
+        "q": "Maple syrup urine disease involves abnormal metabolism of which group?",
+        "a": [
+          "Branched-chain amino acids",
+          "Acidic amino acids",
+          "Basic amino acids",
+          "Hydroxyl-containing amino acids"
+        ],
+        "id": 14
+      },
+      {
+        "q": "Which amino acid disrupts normal secondary structure because of its secondary amine?",
+        "a": [
+          "Proline",
+          "Alanine",
+          "Leucine",
+          "Valine"
+        ],
+        "id": 15
+      },
+      {
+        "q": "Which group contains only non-branched aliphatic amino acids in the diagram?",
+        "a": [
+          "Glycine, alanine, proline",
+          "Valine, alanine, leucine",
+          "Glycine, isoleucine, proline",
+          "Alanine, tyrosine, proline"
+        ],
+        "id": 16
+      },
+      {
+        "q": "Which amino acid contributes most strongly to absorbance at 280 nm?",
+        "a": [
+          "Tryptophan",
+          "Glycine",
+          "Alanine",
+          "Aspartate"
+        ],
+        "id": 17
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Polarity: hydrophilic and charged amino acids",
+    "page": "2–4",
+    "questions": [
+      {
+        "q": "Which pair provides sites for O-linked glycosylation?",
+        "a": [
+          "Serine and threonine",
+          "Asparagine and glutamine",
+          "Aspartate and glutamate",
+          "Lysine and arginine"
+        ],
+        "id": 18
+      },
+      {
+        "q": "Which amino acid provides a site for N-linked glycosylation?",
+        "a": [
+          "Asparagine",
+          "Glutamine",
+          "Serine",
+          "Threonine"
+        ],
+        "id": 19
+      },
+      {
+        "q": "Which residue forms disulfide bonds?",
+        "a": [
+          "Cysteine",
+          "Methionine",
+          "Threonine",
+          "Serine"
+        ],
+        "id": 20
+      },
+      {
+        "q": "Which amino acid is part of SAM, a methyl donor?",
+        "a": [
+          "Methionine",
+          "Cysteine",
+          "Lysine",
+          "Glutamine"
+        ],
+        "id": 21
+      },
+      {
+        "q": "Which pair is acidic?",
+        "a": [
+          "Aspartate and glutamate",
+          "Asparagine and glutamine",
+          "Lysine and arginine",
+          "Serine and threonine"
+        ],
+        "id": 22
+      },
+      {
+        "q": "Which group is basic?",
+        "a": [
+          "Lysine, arginine, histidine",
+          "Aspartate, glutamate, histidine",
+          "Lysine, glutamine, arginine",
+          "Serine, threonine, histidine"
+        ],
+        "id": 23
+      },
+      {
+        "q": "What gives acidic side chains their negative charge?",
+        "a": [
+          "Carboxyl groups",
+          "Protonated amino groups",
+          "Sulfhydryl groups",
+          "Hydroxyl groups"
+        ],
+        "id": 24
+      },
+      {
+        "q": "Which pair is classified as neutral polar nitrogen-containing in the diagram?",
+        "a": [
+          "Asparagine and glutamine",
+          "Aspartate and glutamate",
+          "Lysine and arginine",
+          "Serine and threonine"
+        ],
+        "id": 25
+      },
+      {
+        "q": "Which substitution produces HbS?",
+        "a": [
+          "Glutamate to valine at beta position 6",
+          "Valine to glutamate at beta position 6",
+          "Glutamate to valine at alpha position 6",
+          "Glutamate to leucine at beta position 6"
+        ],
+        "id": 26
+      },
+      {
+        "q": "Why does substituted valine promote deoxygenated HbS polymerization?",
+        "a": [
+          "Hydrophobic interactions",
+          "Negative charge repulsion",
+          "Disulfide formation",
+          "Peptide bond hydrolysis"
+        ],
+        "id": 27
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Biological classification",
+    "page": "3, 11–12",
+    "questions": [
+      {
+        "q": "What defines an essential amino acid?",
+        "a": [
+          "Must be supplied by diet because synthesis is insufficient",
+          "Can always be synthesized adequately",
+          "Occurs only in animal proteins",
+          "Is not used in protein synthesis"
+        ],
+        "id": 28
+      },
+      {
+        "q": "How many amino acids are essential in adults according to the page 3 note?",
+        "a": [
+          "9",
+          "10",
+          "11",
+          "8"
+        ],
+        "id": 29
+      },
+      {
+        "q": "Which becomes conditionally essential during growth?",
+        "a": [
+          "Arginine",
+          "Alanine",
+          "Serine",
+          "Glutamate"
+        ],
+        "id": 30
+      },
+      {
+        "q": "Which is an essential amino acid?",
+        "a": [
+          "Lysine",
+          "Alanine",
+          "Glutamate",
+          "Serine"
+        ],
+        "id": 31
+      },
+      {
+        "q": "Which is nonessential?",
+        "a": [
+          "Alanine",
+          "Leucine",
+          "Tryptophan",
+          "Methionine"
+        ],
+        "id": 32
+      },
+      {
+        "q": "Which set contains only essential amino acids in adults?",
+        "a": [
+          "Histidine, lysine, methionine",
+          "Arginine, glycine, proline",
+          "Alanine, serine, valine",
+          "Tyrosine, glutamine, leucine"
+        ],
+        "id": 33
+      },
+      {
+        "q": "Which group is listed as conditionally nonessential in the table?",
+        "a": [
+          "Glutamine, glycine, proline",
+          "Alanine, aspartate, serine",
+          "Histidine, lysine, valine",
+          "Leucine, isoleucine, methionine"
+        ],
+        "id": 34
+      },
+      {
+        "q": "Why can tyrosine become conditionally essential?",
+        "a": [
+          "Insufficient phenylalanine or impaired conversion",
+          "It cannot enter proteins",
+          "It is always dietary",
+          "It is synthesized from lysine"
+        ],
+        "id": 35
+      },
+      {
+        "q": "What happens if one essential amino acid is deficient?",
+        "a": [
+          "Protein synthesis may be limited",
+          "Other amino acids completely replace it",
+          "Protein synthesis necessarily increases",
+          "All missing essential amino acids are synthesized"
+        ],
+        "id": 36
+      },
+      {
+        "q": "Why are milk and yogurt useful in a vegetarian diet?",
+        "a": [
+          "They provide all nine essential amino acids adequately",
+          "They provide only nonessential amino acids",
+          "They lack essential amino acids",
+          "They cannot support muscle synthesis"
+        ],
+        "id": 37
+      },
+      {
+        "q": "How can different plant proteins improve a vegetarian diet?",
+        "a": [
+          "Complement their amino acid profiles",
+          "Eliminate the need for essential amino acids",
+          "Prevent all protein digestion",
+          "Convert nonessential amino acids into all essential ones"
+        ],
+        "id": 38
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Metabolic classification",
+    "page": "4",
+    "questions": [
+      {
+        "q": "Which pair is exclusively ketogenic in the lecture?",
+        "a": [
+          "Leucine and lysine",
+          "Isoleucine and leucine",
+          "Tyrosine and tryptophan",
+          "Alanine and glycine"
+        ],
+        "id": 39
+      },
+      {
+        "q": "Which group is mixed glucogenic and ketogenic according to the lecture?",
+        "a": [
+          "Isoleucine, phenylalanine, tyrosine, tryptophan",
+          "Leucine, lysine, tyrosine, valine",
+          "Alanine, glycine, serine, proline",
+          "Histidine, methionine, valine, lysine"
+        ],
+        "id": 40
+      },
+      {
+        "q": "How many amino acids are listed as glucogenic only in the lecture?",
+        "a": [
+          "14",
+          "12",
+          "16",
+          "18"
+        ],
+        "id": 41
+      },
+      {
+        "q": "Which pair is glucogenic only?",
+        "a": [
+          "Alanine and glycine",
+          "Leucine and lysine",
+          "Tyrosine and tryptophan",
+          "Phenylalanine and isoleucine"
+        ],
+        "id": 42
+      },
+      {
+        "q": "What is the metabolic fate of mixed amino acids?",
+        "a": [
+          "Glucose and ketone bodies",
+          "Ketone bodies only",
+          "Glucose only",
+          "Neither glucose nor ketone bodies"
+        ],
+        "id": 43
+      },
+      {
+        "q": "Which is listed as glucogenic in the lecture table?",
+        "a": [
+          "Threonine",
+          "Leucine",
+          "Lysine",
+          "Tyrosine"
+        ],
+        "id": 44
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Properties: isoelectric point and zwitterion",
+    "page": "4–5, 10",
+    "questions": [
+      {
+        "q": "Why are amino acids amphoteric?",
+        "a": [
+          "They contain acidic and basic groups",
+          "They contain two acidic groups only",
+          "They contain only nonpolar groups",
+          "They contain two basic groups only"
+        ],
+        "id": 45
+      },
+      {
+        "q": "What is the net charge at the isoelectric point?",
+        "a": [
+          "Zero",
+          "+1",
+          "-1",
+          "+2"
+        ],
+        "id": 46
+      },
+      {
+        "q": "Which groups are present in a typical zwitterion?",
+        "a": [
+          "NH3+ and COO−",
+          "NH2 and COOH",
+          "NH3+ and COOH",
+          "NH2 and COO−"
+        ],
+        "id": 47
+      },
+      {
+        "q": "What happens to a zwitterion at its pI in an electric field?",
+        "a": [
+          "No net migration",
+          "Migrates toward anode",
+          "Migrates toward cathode",
+          "Alternates between electrodes"
+        ],
+        "id": 48
+      },
+      {
+        "q": "Why should pI be avoided during electrophoretic separation?",
+        "a": [
+          "Net charge is zero at pI",
+          "All peptide bonds hydrolyze",
+          "All amino acids become positive",
+          "All amino acids become negative"
+        ],
+        "id": 49
+      },
+      {
+        "q": "How can pI be used in protein purification?",
+        "a": [
+          "Precipitation",
+          "Peptide bond synthesis",
+          "Phosphorylation",
+          "Oxidation"
+        ],
+        "id": 50
+      },
+      {
+        "q": "At low pH, which form predominates in the diagram?",
+        "a": [
+          "Protonated cation",
+          "Deprotonated anion",
+          "Neutral zwitterion",
+          "Uncharged NH2/COOH form"
+        ],
+        "id": 51
+      },
+      {
+        "q": "At high pH, which form predominates?",
+        "a": [
+          "Deprotonated anion",
+          "Protonated cation",
+          "Neutral zwitterion",
+          "Fully protonated form"
+        ],
+        "id": 52
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Protein structure: primary and peptide bonds",
+    "page": "5, 7, 10",
+    "questions": [
+      {
+        "q": "What determines the native form of a protein?",
+        "a": [
+          "Amino acid sequence",
+          "Number of subunits alone",
+          "Molecular weight alone",
+          "Number of acidic residues alone"
+        ],
+        "id": 53
+      },
+      {
+        "q": "What determines protein function?",
+        "a": [
+          "Its structure",
+          "Only its nitrogen content",
+          "Only its length",
+          "Only its terminal residue"
+        ],
+        "id": 54
+      },
+      {
+        "q": "What is primary structure?",
+        "a": [
+          "Amino acid sequence",
+          "Local backbone folding",
+          "Overall three-dimensional folding",
+          "Subunit arrangement"
+        ],
+        "id": 55
+      },
+      {
+        "q": "Which terminus is written on the left?",
+        "a": [
+          "N-terminal",
+          "C-terminal",
+          "Both termini",
+          "Neither terminus"
+        ],
+        "id": 56
+      },
+      {
+        "q": "Which groups form a peptide bond?",
+        "a": [
+          "Carboxyl of one amino acid and alpha-amino of the next",
+          "Two alpha-amino groups",
+          "Two carboxyl groups",
+          "Two sulfhydryl groups"
+        ],
+        "id": 57
+      },
+      {
+        "q": "What generally cleaves stable peptide bonds?",
+        "a": [
+          "Proteolytic enzymes",
+          "Chaperones",
+          "Protein kinases",
+          "Glycosyltransferases"
+        ],
+        "id": 58
+      },
+      {
+        "q": "What characterizes a peptide bond?",
+        "a": [
+          "Partial double-bond character",
+          "Freely rotating single bond",
+          "Ionic side-chain bond",
+          "Disulfide linkage"
+        ],
+        "id": 59
+      },
+      {
+        "q": "What is released during peptide bond formation?",
+        "a": [
+          "Water",
+          "Carbon dioxide",
+          "Ammonia",
+          "Oxygen"
+        ],
+        "id": 60
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Secondary structure and structural motifs",
+    "page": "5–7, 10–11",
+    "questions": [
+      {
+        "q": "What primarily stabilizes secondary structure?",
+        "a": [
+          "Backbone hydrogen bonds",
+          "Side-chain disulfide bonds",
+          "Ionic side-chain bonds",
+          "Peptide bond hydrolysis"
+        ],
+        "id": 61
+      },
+      {
+        "q": "In an alpha helix, a carbonyl bonds to NH how many residues further along?",
+        "a": [
+          "4",
+          "2",
+          "3",
+          "5"
+        ],
+        "id": 62
+      },
+      {
+        "q": "Which residue disrupts alpha helices?",
+        "a": [
+          "Proline",
+          "Alanine",
+          "Leucine",
+          "Valine"
+        ],
+        "id": 63
+      },
+      {
+        "q": "What stabilizes beta pleated sheets?",
+        "a": [
+          "Hydrogen bonds between extended strands",
+          "Disulfide bonds between all strands",
+          "Hydrophobic bonds only",
+          "Peptide bonds between strands"
+        ],
+        "id": 64
+      },
+      {
+        "q": "What distinguishes antiparallel beta strands?",
+        "a": [
+          "Opposite chain directions",
+          "Same chain direction",
+          "Identical side chains",
+          "Absence of hydrogen bonds"
+        ],
+        "id": 65
+      },
+      {
+        "q": "How long is a beta turn according to the lecture?",
+        "a": [
+          "3–4 residues",
+          "1–2 residues",
+          "5–6 residues",
+          "7–8 residues"
+        ],
+        "id": 66
+      },
+      {
+        "q": "Which residues commonly occur in beta bends?",
+        "a": [
+          "Proline and glycine",
+          "Leucine and valine",
+          "Lysine and arginine",
+          "Aspartate and glutamate"
+        ],
+        "id": 67
+      },
+      {
+        "q": "Which describes nonrepetitive secondary structure?",
+        "a": [
+          "Less regular loops or coils",
+          "Only parallel beta sheets",
+          "Only alpha helices",
+          "Multiple independent subunits"
+        ],
+        "id": 68
+      },
+      {
+        "q": "Which is a structural motif?",
+        "a": [
+          "Helix-turn-helix",
+          "A single peptide bond",
+          "A free amino acid",
+          "A disulfide bond alone"
+        ],
+        "id": 69
+      },
+      {
+        "q": "What may combinations of motifs form?",
+        "a": [
+          "A fold",
+          "A peptide bond",
+          "An amino acid",
+          "A prosthetic group"
+        ],
+        "id": 70
+      },
+      {
+        "q": "Which residue occurs every third position in collagen according to the MCQ?",
+        "a": [
+          "Glycine",
+          "Proline",
+          "Tyrosine",
+          "Methionine"
+        ],
+        "id": 71
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Tertiary and quaternary structure",
+    "page": "6–7, 11, 13",
+    "questions": [
+      {
+        "q": "What is tertiary structure?",
+        "a": [
+          "Overall three-dimensional conformation of a polypeptide",
+          "Amino acid sequence",
+          "Local backbone hydrogen bonding only",
+          "Arrangement of multiple subunits only"
+        ],
+        "id": 72
+      },
+      {
+        "q": "What are compact folded regions of large polypeptides called?",
+        "a": [
+          "Domains",
+          "Zwitterions",
+          "Prosthetic groups",
+          "Isoenzymes"
+        ],
+        "id": 73
+      },
+      {
+        "q": "Which interaction is covalent in tertiary structure?",
+        "a": [
+          "Disulfide bond",
+          "Hydrophobic interaction",
+          "Electrostatic interaction",
+          "Hydrogen bond"
+        ],
+        "id": 74
+      },
+      {
+        "q": "Which set contains only noncovalent tertiary interactions?",
+        "a": [
+          "Hydrophobic, electrostatic, hydrogen bonds",
+          "Disulfide, hydrogen, electrostatic",
+          "Peptide, hydrophobic, hydrogen",
+          "Disulfide, peptide, electrostatic"
+        ],
+        "id": 75
+      },
+      {
+        "q": "Where are hydrophilic residues usually found in globular proteins?",
+        "a": [
+          "Surface",
+          "Hydrophobic core",
+          "Only N-terminus",
+          "Only C-terminus"
+        ],
+        "id": 76
+      },
+      {
+        "q": "What defines quaternary structure?",
+        "a": [
+          "Arrangement of multiple polypeptide subunits",
+          "Folding of one chain only",
+          "Sequence of amino acids",
+          "Local alpha helix formation"
+        ],
+        "id": 77
+      },
+      {
+        "q": "What is the subunit composition of HbA?",
+        "a": [
+          "α2β2",
+          "α4",
+          "β4",
+          "α3β1"
+        ],
+        "id": 78
+      },
+      {
+        "q": "Reduced beta-globin production disrupts assembly at which structural level?",
+        "a": [
+          "Quaternary",
+          "Primary",
+          "Secondary",
+          "Tertiary"
+        ],
+        "id": 79
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Denaturation and post-translational modifications",
+    "page": "7, 11",
+    "questions": [
+      {
+        "q": "Which agents can denature proteins?",
+        "a": [
+          "Heat and urea",
+          "Water and glycine only",
+          "Glucose and alanine only",
+          "Oxygen and nitrogen only"
+        ],
+        "id": 80
+      },
+      {
+        "q": "Which structural levels are lost in denaturation without peptide hydrolysis?",
+        "a": [
+          "Secondary, tertiary, quaternary",
+          "Primary only",
+          "Primary and secondary only",
+          "Primary and quaternary only"
+        ],
+        "id": 81
+      },
+      {
+        "q": "When do post-translational modifications occur?",
+        "a": [
+          "After ribosomal synthesis",
+          "Before transcription",
+          "Before peptide synthesis",
+          "During DNA replication"
+        ],
+        "id": 82
+      },
+      {
+        "q": "Which set contains post-translational modifications listed in the lecture?",
+        "a": [
+          "Phosphorylation, methylation, acetylation",
+          "Replication, transcription, translation",
+          "Glycolysis, lipolysis, oxidation",
+          "Electrophoresis, precipitation, dialysis"
+        ],
+        "id": 83
+      },
+      {
+        "q": "How can post-translational modifications affect protein function?",
+        "a": [
+          "Alter charge, interactions and conformation",
+          "Always hydrolyze all peptide bonds",
+          "Always remove all subunits",
+          "Change DNA sequence directly"
+        ],
+        "id": 84
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Protein folding and amyloidosis",
+    "page": "7–9, 13–15",
+    "questions": [
+      {
+        "q": "What is the principal role of chaperones?",
+        "a": [
+          "Assist folding and prevent aggregation",
+          "Synthesize peptide bonds",
+          "Degrade every folded protein",
+          "Act as DNA templates"
+        ],
+        "id": 85
+      },
+      {
+        "q": "Which proteins are also called heat shock proteins in the folding section?",
+        "a": [
+          "Chaperones",
+          "Histones",
+          "Protamines",
+          "Lipoproteins"
+        ],
+        "id": 86
+      },
+      {
+        "q": "What defines amyloidosis?",
+        "a": [
+          "Tissue accumulation of aggregated misfolded proteins",
+          "Accumulation of free amino acids",
+          "Excess normal protein synthesis",
+          "Complete protein hydrolysis"
+        ],
+        "id": 87
+      },
+      {
+        "q": "Amyloid proteins characteristically resemble which structure?",
+        "a": [
+          "Beta strands",
+          "Alpha helices only",
+          "Random monomers",
+          "DNA double helices"
+        ],
+        "id": 88
+      },
+      {
+        "q": "Which pair is given as examples of amyloidosis?",
+        "a": [
+          "Prion disease and Alzheimer disease",
+          "Sickle cell disease and thalassemia",
+          "Gout and diabetes",
+          "Kwashiorkor and starvation"
+        ],
+        "id": 89
+      },
+      {
+        "q": "What forms Alzheimer amyloid plaques?",
+        "a": [
+          "Amyloid-beta derived from APP",
+          "Transthyretin",
+          "Serum amyloid A",
+          "Immunoglobulin light chain"
+        ],
+        "id": 90
+      },
+      {
+        "q": "What can soluble amyloid-beta oligomers do?",
+        "a": [
+          "Disrupt synaptic function and injure neurons",
+          "Improve synaptic communication",
+          "Prevent aggregation",
+          "Increase normal microtubules"
+        ],
+        "id": 91
+      },
+      {
+        "q": "What precipitates mad cow disease in the lecture case?",
+        "a": [
+          "Altered secondary and tertiary structure of an existing brain protein",
+          "Viral infection",
+          "Loss of nuclear membrane",
+          "Altered gene expression alone"
+        ],
+        "id": 92
+      },
+      {
+        "q": "How does autophagy protect against misfolding damage?",
+        "a": [
+          "Delivers damaged components to lysosomes",
+          "Prevents all protein synthesis",
+          "Produces abnormal prions",
+          "Converts proteins into DNA"
+        ],
+        "id": 93
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Protein classification: biological value and axial ratio",
+    "page": "8, 13",
+    "questions": [
+      {
+        "q": "What characterizes high biological value proteins?",
+        "a": [
+          "Balanced essential amino acids and easy digestibility",
+          "High axial ratio only",
+          "Low digestibility",
+          "Absence of essential amino acids"
+        ],
+        "id": 94
+      },
+      {
+        "q": "What can cause low biological value?",
+        "a": [
+          "Deficiency of an essential amino acid or poor digestibility",
+          "Presence of all essential amino acids in balance",
+          "High digestibility",
+          "Presence of peptide bonds"
+        ],
+        "id": 95
+      },
+      {
+        "q": "What is axial ratio?",
+        "a": [
+          "Length divided by width",
+          "Width divided by length",
+          "Mass divided by volume",
+          "Length divided by mass"
+        ],
+        "id": 96
+      },
+      {
+        "q": "What axial ratio defines fibrous proteins in the lecture?",
+        "a": [
+          "More than 10",
+          "Less than 10",
+          "Exactly 1",
+          "Less than 1"
+        ],
+        "id": 97
+      },
+      {
+        "q": "Which is a fibrous protein example?",
+        "a": [
+          "Hair keratin",
+          "Albumin",
+          "Hemoglobin",
+          "Ferritin"
+        ],
+        "id": 98
+      },
+      {
+        "q": "Which is a globular protein example?",
+        "a": [
+          "Albumin",
+          "Hair keratin",
+          "Gelatin fiber",
+          "Coagulated keratin"
+        ],
+        "id": 99
+      },
+      {
+        "q": "Why can equal grams of plant protein differ in nutritional value?",
+        "a": [
+          "Digestibility and indispensable amino acid profile differ",
+          "All proteins have identical amino acid profiles",
+          "Only fat content matters",
+          "Digestibility does not matter"
+        ],
+        "id": 100
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Protein classification: composition",
+    "page": "8–9",
+    "questions": [
+      {
+        "q": "What do simple proteins yield on hydrolysis?",
+        "a": [
+          "Amino acids only",
+          "Amino acids and prosthetic groups",
+          "Only carbohydrates",
+          "Only lipids"
+        ],
+        "id": 101
+      },
+      {
+        "q": "What is a conjugated protein?",
+        "a": [
+          "Simple protein combined with a nonprotein prosthetic group",
+          "Protein without any nonprotein group",
+          "Hydrolytic peptide only",
+          "Denatured protein only"
+        ],
+        "id": 102
+      },
+      {
+        "q": "Which is a phosphoprotein?",
+        "a": [
+          "Casein",
+          "Mucin",
+          "Ferritin",
+          "Hemoglobin"
+        ],
+        "id": 103
+      },
+      {
+        "q": "Which is a glycoprotein?",
+        "a": [
+          "Mucin",
+          "Casein",
+          "Ferritin",
+          "Albumin"
+        ],
+        "id": 104
+      },
+      {
+        "q": "Which pair is classified as metalloproteins?",
+        "a": [
+          "Ferritin and transferrin",
+          "Casein and mucin",
+          "Albumin and globulin",
+          "Hemoglobin and casein"
+        ],
+        "id": 105
+      },
+      {
+        "q": "Which is a chromoprotein?",
+        "a": [
+          "Hemoglobin",
+          "Mucin",
+          "Casein",
+          "Albumin"
+        ],
+        "id": 106
+      },
+      {
+        "q": "Which is a primary derived protein?",
+        "a": [
+          "Coagulated albumin",
+          "Peptone",
+          "Native albumin",
+          "Plasma lipoprotein"
+        ],
+        "id": 107
+      },
+      {
+        "q": "Which is a secondary derived protein?",
+        "a": [
+          "Peptone",
+          "Gelatin",
+          "Coagulated globulin",
+          "Native casein"
+        ],
+        "id": 108
+      },
+      {
+        "q": "Which is an example of a lipoprotein in the lecture?",
+        "a": [
+          "Plasma lipoprotein",
+          "Mucin",
+          "Ferritin",
+          "Casein"
+        ],
+        "id": 109
+      }
+    ]
+  },
+  {
+    "lecture": 1,
+    "title": "Nitrogen balance and protein turnover",
+    "page": "9, 14",
+    "questions": [
+      {
+        "q": "What defines normal nitrogen balance?",
+        "a": [
+          "Nitrogen incorporation equals excretion",
+          "Incorporation exceeds excretion",
+          "Excretion exceeds incorporation",
+          "No nitrogen is excreted"
+        ],
+        "id": 110
+      },
+      {
+        "q": "Which condition is associated with positive nitrogen balance?",
+        "a": [
+          "Pregnancy",
+          "Starvation",
+          "Uncontrolled diabetes",
+          "Kwashiorkor"
+        ],
+        "id": 111
+      },
+      {
+        "q": "Which condition is associated with negative nitrogen balance?",
+        "a": [
+          "Infection",
+          "Growth",
+          "Pregnancy",
+          "Recovery after surgery"
+        ],
+        "id": 112
+      },
+      {
+        "q": "What defines negative nitrogen balance?",
+        "a": [
+          "Loss exceeds incorporation",
+          "Incorporation exceeds loss",
+          "Loss equals incorporation",
+          "No protein turnover"
+        ],
+        "id": 113
+      },
+      {
+        "q": "Which pair represents cellular protein breakdown locations?",
+        "a": [
+          "Lysosomes and proteasomes",
+          "Ribosomes and nuclei",
+          "Golgi and ribosomes",
+          "Nuclei and centrioles"
+        ],
+        "id": 114
+      },
+      {
+        "q": "Which protein tags older or abnormal proteins for proteasomal degradation?",
+        "a": [
+          "Ubiquitin",
+          "Albumin",
+          "Chaperone",
+          "Hemoglobin"
+        ],
+        "id": 115
+      },
+      {
+        "q": "Which condition favors positive nitrogen balance?",
+        "a": [
+          "Recovery from injury",
+          "Essential amino acid deficiency",
+          "Starvation",
+          "Uncontrolled diabetes"
+        ],
+        "id": 116
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Definition and chemical nature of enzymes",
+    "page": "3–4",
+    "questions": [
+      {
+        "q": "What is a catalyst?",
+        "a": [
+          "Accelerates reaction without being consumed",
+          "Is consumed stoichiometrically",
+          "Changes into substrate",
+          "Always denatures during reaction"
+        ],
+        "id": 117
+      },
+      {
+        "q": "Which describes enzymes?",
+        "a": [
+          "Thermolabile organic mostly protein biocatalysts",
+          "Thermostable inorganic catalysts",
+          "Non-specific inorganic substances",
+          "Low-efficiency nonprotein catalysts"
+        ],
+        "id": 118
+      },
+      {
+        "q": "What is a substrate?",
+        "a": [
+          "Substance acted upon by an enzyme",
+          "Protein part of enzyme",
+          "Final catalyst",
+          "Allosteric inhibitor only"
+        ],
+        "id": 119
+      },
+      {
+        "q": "Sucrase converts sucrose into which products?",
+        "a": [
+          "Glucose and fructose",
+          "Glucose and galactose",
+          "Fructose and galactose",
+          "Two glucose molecules"
+        ],
+        "id": 120
+      },
+      {
+        "q": "Compared with inorganic catalysts, enzymes generally have what property?",
+        "a": [
+          "Higher specificity and catalytic efficiency",
+          "Lower specificity and efficiency",
+          "Higher temperature requirement",
+          "Greater thermostability"
+        ],
+        "id": 121
+      },
+      {
+        "q": "What is a simple enzyme composed of?",
+        "a": [
+          "Protein only",
+          "Protein and metal obligatorily",
+          "Vitamin only",
+          "Metal only"
+        ],
+        "id": 122
+      },
+      {
+        "q": "What forms a holoenzyme?",
+        "a": [
+          "Apoenzyme plus required nonprotein component",
+          "Apoenzyme plus substrate only",
+          "Two substrates",
+          "Coenzyme plus product only"
+        ],
+        "id": 123
+      },
+      {
+        "q": "Which component determines substrate specificity?",
+        "a": [
+          "Apoenzyme",
+          "Coenzyme alone",
+          "Metal alone",
+          "Product"
+        ],
+        "id": 124
+      },
+      {
+        "q": "Which describes apoenzymes?",
+        "a": [
+          "High molecular weight globular proteins",
+          "Low molecular weight inorganic metals",
+          "Heat-stable vitamins",
+          "Nonprotein group carriers"
+        ],
+        "id": 125
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Coenzymes and cofactors",
+    "page": "5–7",
+    "questions": [
+      {
+        "q": "Which describes coenzymes?",
+        "a": [
+          "Small heat-stable organic mostly vitamin-derived compounds",
+          "Large thermolabile proteins",
+          "Inorganic metals only",
+          "Peptide substrates only"
+        ],
+        "id": 126
+      },
+      {
+        "q": "How are coenzymes attached according to the lecture?",
+        "a": [
+          "Loosely and noncovalently",
+          "Permanently by peptide bonds",
+          "By disulfide bonds only",
+          "By phosphodiester bonds"
+        ],
+        "id": 127
+      },
+      {
+        "q": "Which pair acts as hydrogen carriers?",
+        "a": [
+          "NAD and FAD",
+          "Biotin and TPP",
+          "Folate and cobalamin",
+          "CoA and biotin"
+        ],
+        "id": 128
+      },
+      {
+        "q": "Which group is listed as hydrogen carriers?",
+        "a": [
+          "Lipoic acid, coenzyme Q, glutathione",
+          "CoA, biotin, folate",
+          "TPP, cobalamin, biotin",
+          "Folate, CoA, cobalamin"
+        ],
+        "id": 129
+      },
+      {
+        "q": "What does coenzyme A carry?",
+        "a": [
+          "Acyl groups",
+          "Methyl groups only",
+          "CO2 only",
+          "One-carbon groups only"
+        ],
+        "id": 130
+      },
+      {
+        "q": "Which pair carries CO2 according to the lecture?",
+        "a": [
+          "TPP and biotin",
+          "NAD and FAD",
+          "CoA and folate",
+          "Cobalamin and glutathione"
+        ],
+        "id": 131
+      },
+      {
+        "q": "What does folic acid carry?",
+        "a": [
+          "One-carbon groups",
+          "Acyl groups",
+          "Hydrogen only",
+          "CO2 only"
+        ],
+        "id": 132
+      },
+      {
+        "q": "What does cobalamin carry?",
+        "a": [
+          "Methyl groups",
+          "Acyl groups",
+          "Hydrogen only",
+          "CO2 only"
+        ],
+        "id": 133
+      },
+      {
+        "q": "Which is an inorganic cofactor?",
+        "a": [
+          "Zn2+",
+          "NAD+",
+          "FAD",
+          "TPP"
+        ],
+        "id": 134
+      },
+      {
+        "q": "What do cofactors and coenzymes share in the lecture?",
+        "a": [
+          "Nonprotein, relatively heat stable and not consumed",
+          "Both are globular proteins",
+          "Both are always metals",
+          "Both are always vitamin-derived"
+        ],
+        "id": 135
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Enzyme nomenclature and classes",
+    "page": "8–11",
+    "questions": [
+      {
+        "q": "Which name is substrate-dependent?",
+        "a": [
+          "Lactase",
+          "Hydrolase",
+          "Dehydrogenase",
+          "Pepsin"
+        ],
+        "id": 136
+      },
+      {
+        "q": "Which name reflects removal of hydrogen?",
+        "a": [
+          "Dehydrogenase",
+          "Hydrolase",
+          "Lactase",
+          "Trypsin"
+        ],
+        "id": 137
+      },
+      {
+        "q": "Which pair has names unrelated to action or substrate?",
+        "a": [
+          "Pepsin and trypsin",
+          "Lactase and sucrase",
+          "Hydrolase and dehydrogenase",
+          "Urease and arginase"
+        ],
+        "id": 138
+      },
+      {
+        "q": "Which class catalyzes oxidation-reduction reactions?",
+        "a": [
+          "Oxidoreductases",
+          "Transferases",
+          "Hydrolases",
+          "Ligases"
+        ],
+        "id": 139
+      },
+      {
+        "q": "Lactate dehydrogenase catalyzes reversible conversion between which compounds?",
+        "a": [
+          "Pyruvate and lactate",
+          "Glucose and fructose",
+          "Histidine and histamine",
+          "Succinate and malate"
+        ],
+        "id": 140
+      },
+      {
+        "q": "Which class transfers chemical groups between compounds?",
+        "a": [
+          "Transferases",
+          "Lyases",
+          "Isomerases",
+          "Hydrolases"
+        ],
+        "id": 141
+      },
+      {
+        "q": "Glucokinase belongs to which class?",
+        "a": [
+          "Transferases",
+          "Hydrolases",
+          "Ligases",
+          "Oxidoreductases"
+        ],
+        "id": 142
+      },
+      {
+        "q": "Which class breaks bonds by adding water?",
+        "a": [
+          "Hydrolases",
+          "Lyases",
+          "Ligases",
+          "Isomerases"
+        ],
+        "id": 143
+      },
+      {
+        "q": "Which group contains hydrolases?",
+        "a": [
+          "Phosphatases, esterases, peptidases",
+          "Decarboxylases, dehydratases, deaminases",
+          "Oxidases, reductases, peroxidases",
+          "Mutases, epimerases, isomerases"
+        ],
+        "id": 144
+      },
+      {
+        "q": "Which class removes groups by mechanisms other than hydrolysis?",
+        "a": [
+          "Lyases",
+          "Hydrolases",
+          "Transferases",
+          "Ligases"
+        ],
+        "id": 145
+      },
+      {
+        "q": "Histidine decarboxylation yields what?",
+        "a": [
+          "Histamine and CO2",
+          "Histamine and NH3",
+          "Histidine and water",
+          "Histamine and ATP"
+        ],
+        "id": 146
+      },
+      {
+        "q": "Which class catalyzes structural rearrangements?",
+        "a": [
+          "Isomerases",
+          "Ligases",
+          "Hydrolases",
+          "Oxidoreductases"
+        ],
+        "id": 147
+      },
+      {
+        "q": "UDP-glucose to UDP-galactose is catalyzed by which type?",
+        "a": [
+          "Epimerase",
+          "Mutase",
+          "Ligase",
+          "Hydrolase"
+        ],
+        "id": 148
+      },
+      {
+        "q": "Glucose-6-phosphate to glucose-1-phosphate uses which type?",
+        "a": [
+          "Mutase",
+          "Epimerase",
+          "Decarboxylase",
+          "Oxidase"
+        ],
+        "id": 149
+      },
+      {
+        "q": "Glucose-6-phosphate to fructose-6-phosphate uses which type?",
+        "a": [
+          "Aldo-keto-isomerase",
+          "Mutase",
+          "Epimerase",
+          "Ligase"
+        ],
+        "id": 150
+      },
+      {
+        "q": "Trans-retinol to cis-retinol uses which type?",
+        "a": [
+          "Cis-trans-isomerase",
+          "Mutase",
+          "Hydrolase",
+          "Transferase"
+        ],
+        "id": 151
+      },
+      {
+        "q": "Which class joins two substrates using ATP?",
+        "a": [
+          "Ligases",
+          "Lyases",
+          "Hydrolases",
+          "Isomerases"
+        ],
+        "id": 152
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Active and allosteric sites",
+    "page": "12–14",
+    "questions": [
+      {
+        "q": "Which sites are functional sites in the enzyme system?",
+        "a": [
+          "Active and allosteric sites",
+          "N-terminal and C-terminal sites",
+          "Acidic and basic sites only",
+          "Protein and vitamin sites"
+        ],
+        "id": 153
+      },
+      {
+        "q": "How does substrate bind the active site?",
+        "a": [
+          "Reversibly through weak noncovalent bonds",
+          "Irreversibly by peptide bonds",
+          "Only through disulfide bonds",
+          "Only through covalent bonds"
+        ],
+        "id": 154
+      },
+      {
+        "q": "Which active-site component performs the reaction?",
+        "a": [
+          "Catalytic site",
+          "Substrate-binding site",
+          "Allosteric site",
+          "Prosthetic site"
+        ],
+        "id": 155
+      },
+      {
+        "q": "What is the function of the substrate-binding site?",
+        "a": [
+          "Bind substrate",
+          "Catalyze all reactions independently",
+          "Bind DNA",
+          "Hydrolyze the enzyme"
+        ],
+        "id": 156
+      },
+      {
+        "q": "How are catalytic and binding sites arranged?",
+        "a": [
+          "May be separate or combined",
+          "Always separated by a large distance",
+          "Always identical",
+          "Always on different subunits"
+        ],
+        "id": 157
+      },
+      {
+        "q": "How do allosteric effectors differ from substrates?",
+        "a": [
+          "No structural similarity",
+          "Always structurally identical",
+          "Always covalently bound",
+          "Always products of hydrolysis"
+        ],
+        "id": 158
+      },
+      {
+        "q": "What follows noncovalent allosteric effector binding?",
+        "a": [
+          "Conformational change affecting active site",
+          "Hydrolysis of all peptide bonds",
+          "Permanent destruction of enzyme",
+          "Conversion into substrate"
+        ],
+        "id": 159
+      },
+      {
+        "q": "What does a positive allosteric effector do?",
+        "a": [
+          "Increases activity",
+          "Decreases activity",
+          "Always denatures enzyme",
+          "Prevents all substrate binding"
+        ],
+        "id": 160
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Substrate specificity",
+    "page": "15–17",
+    "questions": [
+      {
+        "q": "How many specificity types are listed?",
+        "a": [
+          "5",
+          "4",
+          "6",
+          "7"
+        ],
+        "id": 161
+      },
+      {
+        "q": "Which describes absolute specificity?",
+        "a": [
+          "One substrate only",
+          "Two substrates one reaction",
+          "One bond in many substrates",
+          "One substrate two reactions"
+        ],
+        "id": 162
+      },
+      {
+        "q": "Which enzyme-substrate pair illustrates absolute specificity?",
+        "a": [
+          "Urease–urea",
+          "Lipase–starch",
+          "Amylase–protein",
+          "Trypsin–urea"
+        ],
+        "id": 163
+      },
+      {
+        "q": "Which substrates are acted on by xanthine oxidase?",
+        "a": [
+          "Hypoxanthine and xanthine",
+          "Xanthine and uric acid",
+          "Urea and uric acid",
+          "Arginine and urea"
+        ],
+        "id": 164
+      },
+      {
+        "q": "Which enzyme illustrates one substrate with two reaction types?",
+        "a": [
+          "Isocitrate dehydrogenase",
+          "Urease",
+          "Arginase",
+          "Carbonic anhydrase"
+        ],
+        "id": 165
+      },
+      {
+        "q": "What two reactions does isocitrate dehydrogenase catalyze?",
+        "a": [
+          "Dehydrogenation and decarboxylation",
+          "Hydrolysis and ligation",
+          "Methylation and phosphorylation",
+          "Isomerization and hydrolysis"
+        ],
+        "id": 166
+      },
+      {
+        "q": "What is the product of isocitrate dehydrogenase in the lecture?",
+        "a": [
+          "Alpha-ketoglutarate",
+          "Pyruvate",
+          "Lactate",
+          "Succinate"
+        ],
+        "id": 167
+      },
+      {
+        "q": "What does D-amino acid oxidase act on?",
+        "a": [
+          "D-amino acids only",
+          "L-amino acids only",
+          "Both equally",
+          "Only glycine"
+        ],
+        "id": 168
+      },
+      {
+        "q": "Which type recognizes the same bond across related compounds?",
+        "a": [
+          "Relative specificity",
+          "Absolute specificity",
+          "Dual specificity",
+          "Stereo-specificity"
+        ],
+        "id": 169
+      },
+      {
+        "q": "Which bond is hydrolyzed by lipase in triglycerides?",
+        "a": [
+          "Ester linkage",
+          "Peptide linkage",
+          "Glycosidic linkage",
+          "Disulfide linkage"
+        ],
+        "id": 170
+      },
+      {
+        "q": "Which bond is hydrolyzed by amylase?",
+        "a": [
+          "Glycosidic linkage",
+          "Ester linkage",
+          "Peptide linkage",
+          "Disulfide linkage"
+        ],
+        "id": 171
+      },
+      {
+        "q": "What distinguishes structural from relative specificity?",
+        "a": [
+          "Requires particular groups around the bond",
+          "Acts on only one substrate always",
+          "Acts on both stereoisomers always",
+          "Requires no bond recognition"
+        ],
+        "id": 172
+      },
+      {
+        "q": "Pepsin targets peptide linkages involving amino groups of which residues?",
+        "a": [
+          "Phenylalanine or tyrosine",
+          "Arginine or lysine",
+          "Aspartate or glutamate",
+          "Serine or threonine"
+        ],
+        "id": 173
+      },
+      {
+        "q": "Trypsin targets peptide linkages involving carboxyl groups of which residues?",
+        "a": [
+          "Arginine or lysine",
+          "Phenylalanine or tyrosine",
+          "Glycine or alanine",
+          "Aspartate or glutamate"
+        ],
+        "id": 174
+      },
+      {
+        "q": "Which enzyme prefers the carboxyl end of a polypeptide?",
+        "a": [
+          "Carboxypeptidase",
+          "Aminopeptidase",
+          "Amylase",
+          "Lipase"
+        ],
+        "id": 175
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Michaelis constant and kinetics",
+    "page": "18–19",
+    "questions": [
+      {
+        "q": "What is Km?",
+        "a": [
+          "Substrate concentration at half Vmax",
+          "Velocity at half substrate concentration",
+          "Maximum velocity",
+          "Enzyme concentration at Vmax"
+        ],
+        "id": 176
+      },
+      {
+        "q": "Why does velocity plateau at high substrate concentration?",
+        "a": [
+          "All enzyme molecules are occupied",
+          "All enzymes are denatured",
+          "Km becomes zero",
+          "Substrate concentration falls to zero"
+        ],
+        "id": 177
+      },
+      {
+        "q": "What does lower Km indicate according to the lecture?",
+        "a": [
+          "Higher substrate affinity",
+          "Lower substrate affinity",
+          "Higher Vmax necessarily",
+          "No substrate binding"
+        ],
+        "id": 178
+      },
+      {
+        "q": "Which enzyme has lower Km for glucose in the lecture?",
+        "a": [
+          "Hexokinase",
+          "Glucokinase",
+          "Both equal",
+          "Neither has a Km"
+        ],
+        "id": 179
+      },
+      {
+        "q": "Which is a use of Km?",
+        "a": [
+          "Identify enzyme and characterize inhibition",
+          "Measure protein axial ratio",
+          "Determine amino acid sequence",
+          "Determine enzyme molecular weight directly"
+        ],
+        "id": 180
+      },
+      {
+        "q": "If Vmax is 80 units, at Km the velocity is what?",
+        "a": [
+          "40 units",
+          "20 units",
+          "60 units",
+          "80 units"
+        ],
+        "id": 181
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Factors: temperature and pH",
+    "page": "20–21",
+    "questions": [
+      {
+        "q": "What is the usual optimum temperature of human enzymes?",
+        "a": [
+          "37–40 °C",
+          "30–33 °C",
+          "42–45 °C",
+          "25–28 °C"
+        ],
+        "id": 182
+      },
+      {
+        "q": "What happens above optimum temperature according to the lecture?",
+        "a": [
+          "Denaturation and irreversible inactivation",
+          "Reversible freezing",
+          "Unlimited increase in activity",
+          "No change in activity"
+        ],
+        "id": 183
+      },
+      {
+        "q": "What happens at or below freezing?",
+        "a": [
+          "Reversible inactivation",
+          "Irreversible denaturation",
+          "Maximum activity",
+          "Covalent activation"
+        ],
+        "id": 184
+      },
+      {
+        "q": "What does pH affect?",
+        "a": [
+          "Ionization of active-site residues and substrate, and folding",
+          "Only enzyme concentration",
+          "Only molecular weight",
+          "Only product concentration"
+        ],
+        "id": 185
+      },
+      {
+        "q": "What is optimum pH of salivary amylase?",
+        "a": [
+          "6.8",
+          "7.2",
+          "5.8",
+          "8.2"
+        ],
+        "id": 186
+      },
+      {
+        "q": "What is optimum pH of pancreatic amylase?",
+        "a": [
+          "7.2",
+          "6.8",
+          "8.2",
+          "5.2"
+        ],
+        "id": 187
+      },
+      {
+        "q": "What is optimum pH of pepsin?",
+        "a": [
+          "1.5–2.0",
+          "3.5–4.0",
+          "6.5–7.0",
+          "7.5–8.0"
+        ],
+        "id": 188
+      },
+      {
+        "q": "What is the effect of extreme pH?",
+        "a": [
+          "Denaturation through conformational or ionization changes",
+          "Permanent activation",
+          "No effect on substrate",
+          "Only increased enzyme concentration"
+        ],
+        "id": 189
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Factors: concentrations, light and oxidation",
+    "page": "22–23",
+    "questions": [
+      {
+        "q": "Why does increasing enzyme concentration eventually cease increasing reaction rate in the lecture?",
+        "a": [
+          "Total substrate consumption",
+          "All enzymes become denatured",
+          "Km becomes infinite",
+          "All cofactors become proteins"
+        ],
+        "id": 190
+      },
+      {
+        "q": "Why does increasing substrate eventually cease increasing rate?",
+        "a": [
+          "Saturation of active sites",
+          "Enzyme concentration becomes zero",
+          "All substrates become inhibitors",
+          "Temperature decreases"
+        ],
+        "id": 191
+      },
+      {
+        "q": "How does cofactor availability affect rate according to the lecture?",
+        "a": [
+          "Directly proportional",
+          "Inversely proportional",
+          "Always unrelated",
+          "Always decreases rate"
+        ],
+        "id": 192
+      },
+      {
+        "q": "What is the usual effect of UV and ionizing radiation?",
+        "a": [
+          "Denaturation of most enzymes",
+          "Activation of all enzymes",
+          "No effect on enzymes",
+          "Increased enzyme synthesis only"
+        ],
+        "id": 193
+      },
+      {
+        "q": "Which enzyme is given as an exception activated by red or green light?",
+        "a": [
+          "Amylase",
+          "Pepsin",
+          "Trypsin",
+          "Urease"
+        ],
+        "id": 194
+      },
+      {
+        "q": "Which enzymes may be activated by UV light?",
+        "a": [
+          "Some DNA repair enzymes",
+          "All digestive enzymes",
+          "All oxidoreductases",
+          "All plasma enzymes"
+        ],
+        "id": 195
+      },
+      {
+        "q": "What happens when essential active-site SH groups are oxidized to S–S?",
+        "a": [
+          "Activity is lost",
+          "Activity always doubles",
+          "Km becomes zero",
+          "Substrate becomes enzyme"
+        ],
+        "id": 196
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Feedback regulation and inhibitor types",
+    "page": "24–25",
+    "questions": [
+      {
+        "q": "What is feedback inhibition?",
+        "a": [
+          "End product inhibits an early pathway enzyme",
+          "Substrate activates the final enzyme",
+          "Enzyme consumes itself",
+          "Product activates every pathway enzyme"
+        ],
+        "id": 197
+      },
+      {
+        "q": "Where does end product D bind in the lecture diagram?",
+        "a": [
+          "Allosteric site of enzyme 1",
+          "Active site of final enzyme only",
+          "Substrate-binding site of every enzyme",
+          "DNA binding site"
+        ],
+        "id": 198
+      },
+      {
+        "q": "What helps continuation of a feedback-inhibited pathway?",
+        "a": [
+          "Rapid removal of end products",
+          "Accumulation of end products",
+          "Denaturation of all enzymes",
+          "Removal of all substrates"
+        ],
+        "id": 199
+      },
+      {
+        "q": "What is nonspecific inhibition in the lecture?",
+        "a": [
+          "Denaturation",
+          "Competitive binding",
+          "Noncompetitive binding",
+          "Feedback regulation only"
+        ],
+        "id": 200
+      },
+      {
+        "q": "How does an irreversible inhibitor inactivate enzyme according to the lecture?",
+        "a": [
+          "Covalent modification",
+          "Weak reversible binding only",
+          "Increasing substrate concentration",
+          "Removing product only"
+        ],
+        "id": 201
+      },
+      {
+        "q": "Which example is listed as irreversible inhibition?",
+        "a": [
+          "Cyanide and cytochrome oxidase",
+          "Allopurinol and xanthine oxidase",
+          "Methotrexate and folate reductase",
+          "Malonic acid and succinate dehydrogenase"
+        ],
+        "id": 202
+      },
+      {
+        "q": "What happens after washing out a reversible inhibitor?",
+        "a": [
+          "Enzyme regains activity",
+          "Enzyme remains permanently inactive",
+          "Enzyme is hydrolyzed",
+          "Substrate becomes inhibitor"
+        ],
+        "id": 203
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Competitive and noncompetitive inhibitors",
+    "page": "26–28",
+    "questions": [
+      {
+        "q": "Where does a competitive inhibitor compete with substrate?",
+        "a": [
+          "Active site",
+          "Allosteric site only",
+          "N-terminal end only",
+          "Product site only"
+        ],
+        "id": 204
+      },
+      {
+        "q": "How can competitive inhibition be overcome?",
+        "a": [
+          "Increase substrate concentration",
+          "Decrease substrate concentration",
+          "Increase inhibitor concentration",
+          "Remove all enzyme"
+        ],
+        "id": 205
+      },
+      {
+        "q": "What happens to apparent Km in competitive inhibition?",
+        "a": [
+          "Increases",
+          "Decreases",
+          "Remains unchanged",
+          "Becomes zero"
+        ],
+        "id": 206
+      },
+      {
+        "q": "Which complex forms when competitive inhibitor binds free enzyme?",
+        "a": [
+          "EI",
+          "ESI only",
+          "EP",
+          "ES only"
+        ],
+        "id": 207
+      },
+      {
+        "q": "Which enzyme is inhibited by malonic acid in the lecture?",
+        "a": [
+          "Succinate dehydrogenase",
+          "Xanthine oxidase",
+          "Folate reductase",
+          "Cytochrome oxidase"
+        ],
+        "id": 208
+      },
+      {
+        "q": "Which inhibitor is used for gout?",
+        "a": [
+          "Allopurinol",
+          "Methotrexate",
+          "Malonic acid",
+          "Cyanide"
+        ],
+        "id": 209
+      },
+      {
+        "q": "Which enzyme does allopurinol inhibit?",
+        "a": [
+          "Xanthine oxidase",
+          "Succinate dehydrogenase",
+          "Glucokinase",
+          "Lactate dehydrogenase"
+        ],
+        "id": 210
+      },
+      {
+        "q": "Which inhibitor is used as an anticancer agent in the lecture?",
+        "a": [
+          "Methotrexate",
+          "Allopurinol",
+          "Malonic acid",
+          "Biotin"
+        ],
+        "id": 211
+      },
+      {
+        "q": "What is the stated consequence of methotrexate inhibition?",
+        "a": [
+          "Reduced tetrahydrofolate needed for cell division",
+          "Increased uric acid synthesis",
+          "Increased ATP production",
+          "Increased glycogen synthesis"
+        ],
+        "id": 212
+      },
+      {
+        "q": "Which describes noncompetitive inhibitor binding?",
+        "a": [
+          "Free enzyme or enzyme-substrate complex",
+          "Only substrate itself",
+          "Only active site in competition with substrate",
+          "Only final product"
+        ],
+        "id": 213
+      },
+      {
+        "q": "What happens to Vmax and Km in noncompetitive inhibition?",
+        "a": [
+          "Vmax decreases, Km unchanged",
+          "Vmax unchanged, Km increases",
+          "Both increase",
+          "Both unchanged"
+        ],
+        "id": 214
+      },
+      {
+        "q": "How may noncompetitive inhibition be removed according to the lecture?",
+        "a": [
+          "Special measures such as dialysis",
+          "Increasing substrate alone",
+          "Adding more inhibitor",
+          "Decreasing substrate alone"
+        ],
+        "id": 215
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Covalent modification and zymogens",
+    "page": "29–31",
+    "questions": [
+      {
+        "q": "Which enzyme phosphorylates proteins?",
+        "a": [
+          "Protein kinase",
+          "Protein phosphatase",
+          "Protease",
+          "Ligase only"
+        ],
+        "id": 216
+      },
+      {
+        "q": "Which enzyme removes phosphate groups?",
+        "a": [
+          "Protein phosphatase",
+          "Protein kinase",
+          "Amylase",
+          "Decarboxylase"
+        ],
+        "id": 217
+      },
+      {
+        "q": "What happens to glycogen synthase on phosphorylation?",
+        "a": [
+          "Inactivated",
+          "Activated",
+          "Converted to zymogen",
+          "Hydrolyzed completely"
+        ],
+        "id": 218
+      },
+      {
+        "q": "What happens to glycogen phosphorylase on phosphorylation?",
+        "a": [
+          "Activated",
+          "Inactivated",
+          "Converted to glycogen synthase",
+          "Hydrolyzed completely"
+        ],
+        "id": 219
+      },
+      {
+        "q": "What is a zymogen?",
+        "a": [
+          "Inactive enzyme precursor",
+          "Active enzyme-product complex",
+          "Inorganic cofactor",
+          "Vitamin-derived coenzyme"
+        ],
+        "id": 220
+      },
+      {
+        "q": "Why are zymogens inactive?",
+        "a": [
+          "Catalytic site masked by inhibitory polypeptide",
+          "No amino acids present",
+          "All peptide bonds destroyed",
+          "No protein structure exists"
+        ],
+        "id": 221
+      },
+      {
+        "q": "How are zymogens activated?",
+        "a": [
+          "Proteolytic cleavage of inhibitory chain",
+          "Addition of allosteric inhibitor",
+          "Complete hydrolysis to amino acids",
+          "Removal of all cofactors"
+        ],
+        "id": 222
+      },
+      {
+        "q": "Which pair consists of zymogens?",
+        "a": [
+          "Trypsinogen and pepsinogen",
+          "Trypsin and pepsin",
+          "Amylase and lipase",
+          "Kinase and phosphatase"
+        ],
+        "id": 223
+      },
+      {
+        "q": "Why are proteases synthesized as zymogens?",
+        "a": [
+          "Protect tissue from autodigestion",
+          "Increase autodigestion",
+          "Prevent future activation",
+          "Eliminate enzyme regulation"
+        ],
+        "id": 224
+      },
+      {
+        "q": "Which process illustrates storage of inactive enzymes until needed?",
+        "a": [
+          "Blood clotting",
+          "DNA replication",
+          "Glycolysis only",
+          "Electrophoresis"
+        ],
+        "id": 225
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Isoenzymes and CPK",
+    "page": "32–33",
+    "questions": [
+      {
+        "q": "What are isoenzymes?",
+        "a": [
+          "Different molecular forms catalyzing the same reaction",
+          "Identical molecules catalyzing different reactions",
+          "Different substrates of one enzyme",
+          "Inactive precursors only"
+        ],
+        "id": 226
+      },
+      {
+        "q": "What structural difference explains isoenzymes in the lecture?",
+        "a": [
+          "Quaternary structure",
+          "Identical amino acid composition always",
+          "Absence of protein",
+          "Identical charge always"
+        ],
+        "id": 227
+      },
+      {
+        "q": "Which properties may differ among isoenzymes?",
+        "a": [
+          "pH optimum, Km and reaction rate",
+          "Reaction identity necessarily",
+          "All properties are identical",
+          "Only substrate identity"
+        ],
+        "id": 228
+      },
+      {
+        "q": "Why can isoenzymes be separated by electrophoresis?",
+        "a": [
+          "Different electric charges from acidic and basic residues",
+          "Identical electric charges",
+          "Different substrate concentrations only",
+          "Different temperatures only"
+        ],
+        "id": 229
+      },
+      {
+        "q": "How many protomers form each CPK isoenzyme?",
+        "a": [
+          "2",
+          "3",
+          "4",
+          "1"
+        ],
+        "id": 230
+      },
+      {
+        "q": "Which CPK isoenzyme predominates in brain?",
+        "a": [
+          "BB",
+          "MM",
+          "MB",
+          "M only"
+        ],
+        "id": 231
+      },
+      {
+        "q": "Which CPK isoenzyme is associated with myocardium?",
+        "a": [
+          "MB",
+          "BB",
+          "MM",
+          "B only"
+        ],
+        "id": 232
+      },
+      {
+        "q": "Which CPK isoenzyme is associated with skeletal muscle?",
+        "a": [
+          "MM",
+          "BB",
+          "MB",
+          "B only"
+        ],
+        "id": 233
+      },
+      {
+        "q": "Which CPK isoenzyme has fastest electrophoretic mobility?",
+        "a": [
+          "CPK-1 BB",
+          "CPK-2 MB",
+          "CPK-3 MM",
+          "All equal"
+        ],
+        "id": 234
+      },
+      {
+        "q": "Which CPK isoenzyme is highly positive and slowest?",
+        "a": [
+          "CPK-3 MM",
+          "CPK-1 BB",
+          "CPK-2 MB",
+          "All equal"
+        ],
+        "id": 235
+      },
+      {
+        "q": "What reaction do CPK isoenzymes catalyze?",
+        "a": [
+          "Phosphorylation of creatine",
+          "Hydrolysis of creatine",
+          "Oxidation of glucose",
+          "Decarboxylation of pyruvate"
+        ],
+        "id": 236
+      }
+    ]
+  },
+  {
+    "lecture": 2,
+    "title": "Clinical diagnosis and plasma enzymes",
+    "page": "34",
+    "questions": [
+      {
+        "q": "What are functional plasma enzymes?",
+        "a": [
+          "Enzymes with substrates and physiological functions in blood",
+          "Enzymes without substrates in blood",
+          "Only intracellular metabolic enzymes",
+          "Only damaged tissue proteins"
+        ],
+        "id": 237
+      },
+      {
+        "q": "Which is a functional plasma enzyme example?",
+        "a": [
+          "Lipoprotein lipase",
+          "Intracellular metabolic enzyme released by injury",
+          "Tissue enzyme without blood substrate",
+          "Nonfunctional plasma enzyme"
+        ],
+        "id": 238
+      },
+      {
+        "q": "Why are nonfunctional plasma enzymes normally present at low levels?",
+        "a": [
+          "Normal cellular wear and tear",
+          "They are synthesized only in plasma",
+          "They are consumed by plasma substrates",
+          "They are all inactive zymogens"
+        ],
+        "id": 239
+      },
+      {
+        "q": "Why can nonfunctional plasma enzymes rise in disease?",
+        "a": [
+          "Damaged cells release intracellular enzymes",
+          "Blood produces all enzymes de novo",
+          "All enzymes become cofactors",
+          "Substrates become proteins"
+        ],
+        "id": 240
+      },
+      {
+        "q": "What is the clinical value of serum enzyme assays?",
+        "a": [
+          "Help identify tissue damage",
+          "Measure DNA sequence directly",
+          "Determine protein axial ratio",
+          "Measure all dietary amino acids"
+        ],
+        "id": 241
+      }
+    ]
+  }
+];
+const app=document.getElementById('app');
+const all=sections.flatMap((s,i)=>s.questions.map(q=>({...q,section:i})));
+let seen={},scope=[],round=[],pos=0,answers=[],limit=5,scopeName='',lecture=0;try{seen=JSON.parse(localStorage.getItem('bio-exam-v1')||'{}')}catch(e){}
+
+function save(){try{localStorage.setItem('bio-exam-v1',JSON.stringify(seen))}catch(e){}}
+
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function btn(t,action,cls=''){return `<button class="${cls}" onclick="${action}">${t}</button>`}
+
+function home(){app.innerHTML=`<div class="panel"><h2>عايز تمتحن على إيه؟</h2><p class="muted">${all.length} سؤال • ${sections.length} موضوع • تمت الإجابة على ${Object.keys(seen).length} سؤال مختلف</p>${btn('المحاضرة الأولى — Amino Acids & Proteins','choose(1)')}${btn('المحاضرة الثانية — Enzymes','choose(2)')}${btn('امتحان شامل — 10 أسئلة','selectScope(0,-1)','primary')}</div><div class="panel"><details><summary>ملاحظات مهمة عن المحاضرات</summary><p>الأسئلة تتبع صياغة المحاضرات. المحاضرة الأولى تذكر 10 أحماض أساسية مع الأرجينين، بينما توضح أن البالغين يحتاجون 9 والأرجينين شرطي. توجد اختلافات في تصنيف الأحماض الكبريتية بين النص والرسم، لذلك لا نستخدمها كسؤال تصنيف ملتبس. بعض أمثلة المحاضرة الثانية مبسطة علميًا؛ الأسئلة الموسومة according to the lecture تتبع المقرر.</p></details>${btn('مسح سجل الأسئلة السابقة','resetSeen()')}</div>`}
+
+function resetSeen(){if(confirm('تمسح سجل التدريب؟')){seen={};save();home()}}
+
+function choose(l){lecture=l;app.innerHTML=`<div class="panel"><h2>المحاضرة ${l===1?'الأولى':'الثانية'}</h2>${btn('امتحان المحاضرة كاملة — 5 أسئلة','selectScope('+l+',-1)','primary')}<h2>أو اختار موضوع محدد</h2>${sections.map((s,i)=>s.lecture===l?btn(`<span dir="ltr">${esc(s.title)}</span><br><small>${l===1?'صفحات':'شرائح'} ${s.page} • ${s.questions.length} سؤال • ${s.questions.filter(q=>seen[q.id]).length} تمت مراجعتها</small>`,`selectScope(${l},${i})`):'').join('')}${btn('القائمة الرئيسية','home()')}</div>`}
+
+function selectScope(l,i){lecture=l;scope=all.filter(q=>i>=0?q.section===i:l===0||sections[q.section].lecture===l);limit=l===0?10:5;scopeName=i>=0?sections[i].title:l===0?'Comprehensive Exam':`Lecture ${l} — Full exam`;start('fresh')}
+
+function start(mode){let previous=round.map(q=>q.id);let pool=mode==='same'?round:mode==='fresh'?scope.filter(q=>!seen[q.id]):scope;if(mode==='fresh'&&!pool.length){app.innerHTML=`<div class="panel"><h2>خلصت كل الأسئلة الجديدة في الجزء ده!</h2>${btn('امتحان عشوائي','start(\'random\')','primary')}${btn('إعادة نفس الأسئلة','start(\'same\')')}${btn('القائمة الرئيسية','home()')}</div>`;return}if(mode==='same'&&!pool.length)pool=scope;let n=mode==='same'?pool.length:Math.min(limit,pool.length);if(lecture===0&&mode!=='same'&&n===10){let a=shuffle(pool.filter(q=>sections[q.section].lecture===1)).slice(0,5),b=shuffle(pool.filter(q=>sections[q.section].lecture===2)).slice(0,5);let picked=[...a,...b];round=shuffle([...picked,...shuffle(pool.filter(q=>!picked.includes(q))).slice(0,10-picked.length)])}else round=mode==='same'?[...pool]:shuffle(pool).slice(0,n);pos=0;answers=[];show()}
+
+function show(){let q=round[pos],s=sections[q.section];let options=shuffle(q.a);app.innerHTML=`<div class="panel"><div class="stats"><span class="tag">${esc(scopeName)}</span><span>${pos+1} / ${round.length}</span></div><div class="bar"><i style="width:${100*pos/round.length}%"></i></div><p class="muted" dir="ltr">Lecture ${s.lecture} • ${s.lecture===1?'Page':'Slide'} ${s.page} • ${esc(s.title)}</p><h2 class="en">${esc(q.q)}</h2><div id="opts">${options.map((a,i)=>`<button class="answer" data-index="${q.a.indexOf(a)}" onclick="answer(this)">${'ABCD'[i]}. ${esc(a)}</button>`).join('')}</div><div id="feedback" aria-live="polite"></div>${btn('خروج للقائمة الرئيسية','leave()')}</div>`}
+
+function leave(){if(confirm('تخرج من الامتحان الحالي؟'))home()}
+
+function answer(el){if(answers.length>pos)return;let q=round[pos],idx=Number(el.dataset.index),ok=idx===0;answers.push({q,idx,ok});seen[q.id]=(seen[q.id]||0)+1;save();document.querySelectorAll('#opts button').forEach(b=>{b.disabled=true;if(b.dataset.index==='0')b.classList.add('correct');else if(b===el)b.classList.add('wrong')});document.getElementById('feedback').innerHTML=`<div class="panel ${ok?'correct':'wrong'}"><strong>${ok?'إجابة صحيحة ✓':'إجابة غلط ✗'}</strong><p class="en">Correct answer: ${esc(q.a[0])}</p></div>${btn(pos+1===round.length?'عرض النتيجة':'السؤال التالي','next()','primary')}`}
+
+function next(){if(answers.length<=pos)return;pos++;if(pos===round.length)result();else show()}
+
+function result(){let score=answers.filter(a=>a.ok).length,remaining=scope.filter(q=>!seen[q.id]).length;app.innerHTML=`<div class="panel"><h2>نتيجة الامتحان</h2><div class="score">${score} / ${round.length}</div><p style="text-align:center">${Math.round(score/round.length*100)}% • ${remaining} سؤال جديد متبقي في النطاق</p>${btn('إعادة نفس الأسئلة','start(\'same\')','primary')}${btn('أسئلة جديدة لم تظهر من قبل ('+remaining+')','start(\'fresh\')')}${btn('أسئلة عشوائية — ممكن تتكرر','start(\'random\')')}${btn('اختيار موضوع آخر',lecture?'choose('+lecture+')':'home()')}${btn('القائمة الرئيسية','home()')}</div><div class="panel"><h2>مراجعة الإجابات</h2>${answers.map(a=>`<div class="en"><strong>${a.ok?'✓':'✗'} ${esc(a.q.q)}</strong><p>Your answer: ${esc(a.q.a[a.idx])}<br>Correct: ${esc(a.q.a[0])}</p></div>`).join('<hr>')}</div>`}home();
+  </script>
+ </body>
+</html>
